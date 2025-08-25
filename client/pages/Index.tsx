@@ -219,7 +219,7 @@ export default function Index() {
               <span className="text-sm font-medium">Join 25,000+ learners mastering the basics</span>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
       </div>
 
       {/* Session Modal */}
