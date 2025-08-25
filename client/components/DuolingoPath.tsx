@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { CheckCircle2, Lock, Star, Trophy, Zap, Crown, Shield, Gem } from "lucide-react";
+import { CheckCircle2, Lock, Star, Trophy, Zap, Crown, Shield, Gem, Target, Brain } from "lucide-react";
 import { Session } from "./SessionModal";
 
 interface DuolingoPathProps {
@@ -14,62 +14,67 @@ const levelColors = {
     light: "bg-beginner/10",
     border: "border-beginner",
     text: "text-beginner",
-    gradient: "from-beginner to-green-400"
+    gradient: "from-beginner to-green-400",
+    ring: "ring-beginner/20"
   },
   intermediate: {
     primary: "bg-intermediate", 
     light: "bg-intermediate/10",
     border: "border-intermediate",
     text: "text-intermediate",
-    gradient: "from-intermediate to-yellow-400"
+    gradient: "from-intermediate to-yellow-400",
+    ring: "ring-intermediate/20"
   },
   advanced: {
     primary: "bg-advanced",
     light: "bg-advanced/10", 
     border: "border-advanced",
     text: "text-advanced",
-    gradient: "from-advanced to-red-400"
+    gradient: "from-advanced to-red-400",
+    ring: "ring-advanced/20"
   }
 };
 
 const levelIcons = {
-  beginner: Star,
-  intermediate: Zap, 
-  advanced: Trophy
+  beginner: [Star, Shield, Target, Gem],
+  intermediate: [Zap, Brain, Trophy, Crown], 
+  advanced: [Trophy, Crown, Target, Star]
 };
 
-// Enhanced Duolingo-style zigzag pattern
+// Enhanced Duolingo-style zigzag pattern with wider spread
 const getNodePosition = (index: number) => {
-  const positions = [50, 25, 75, 50, 25, 75, 50, 25, 75, 50, 25, 75, 50, 25, 75, 50, 25, 75]; // Zigzag pattern
-  return positions[index % positions.length];
+  const patterns = [50, 20, 80, 35, 65, 25, 75, 40, 60, 30, 70, 45, 55, 35, 65, 25, 75, 50]; 
+  return patterns[index % patterns.length];
 };
 
-// Generate smooth path between nodes
+// Generate enhanced smooth path between nodes
 const generatePathData = (sessions: Session[]) => {
   if (sessions.length === 0) return "";
   
   let pathData = "";
   for (let i = 0; i < sessions.length; i++) {
     const x = getNodePosition(i);
-    const y = 120 + (i * 160); // Vertical spacing of 160px
+    const y = 150 + (i * 200); // Increased spacing to 200px
     
     if (i === 0) {
       pathData = `M ${x} ${y}`;
     } else {
       const prevX = getNodePosition(i - 1);
-      const prevY = 120 + ((i - 1) * 160);
+      const prevY = 150 + ((i - 1) * 200);
       
-      // Create smooth curve between nodes
-      const midY = prevY + 80;
-      pathData += ` Q ${prevX} ${midY} ${x} ${y}`;
+      // Create smoother S-curve between nodes
+      const midY = prevY + 100;
+      const controlX1 = prevX;
+      const controlX2 = x;
+      pathData += ` C ${controlX1} ${midY} ${controlX2} ${midY} ${x} ${y}`;
     }
   }
   return pathData;
 };
 
 export default function DuolingoPath({ sessions, level, onSessionClick }: DuolingoPathProps) {
-  const Icon = levelIcons[level];
   const colors = levelColors[level];
+  const icons = levelIcons[level];
 
   const isSessionUnlocked = (index: number) => {
     if (index === 0) return true;
@@ -82,11 +87,11 @@ export default function DuolingoPath({ sessions, level, onSessionClick }: Duolin
   };
 
   const pathData = generatePathData(sessions);
-  const totalHeight = 120 + (sessions.length * 160) + 100; // Extra padding at bottom
+  const totalHeight = 150 + (sessions.length * 200) + 150; // Extra padding
 
   return (
-    <div className="relative w-full mx-auto max-w-md" style={{ height: `${totalHeight}px` }}>
-      {/* Background Path */}
+    <div className="relative w-full mx-auto max-w-2xl" style={{ height: `${totalHeight}px` }}>
+      {/* Enhanced Background Path */}
       <svg 
         className="absolute inset-0 w-full h-full pointer-events-none" 
         viewBox={`0 0 100 ${totalHeight}`}
@@ -94,29 +99,48 @@ export default function DuolingoPath({ sessions, level, onSessionClick }: Duolin
       >
         <defs>
           <linearGradient id={`pathGradient-${level}`} x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor={`hsl(var(--${level}))`} stopOpacity="0.3"/>
+            <stop offset="0%" stopColor={`hsl(var(--${level}))`} stopOpacity="0.4"/>
+            <stop offset="50%" stopColor={`hsl(var(--${level}))`} stopOpacity="0.2"/>
             <stop offset="100%" stopColor={`hsl(var(--${level}))`} stopOpacity="0.1"/>
           </linearGradient>
+          <filter id={`glow-${level}`}>
+            <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+            <feMerge> 
+              <feMergeNode in="coloredBlur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
         </defs>
         
-        {/* Main connecting path */}
+        {/* Main connecting path with glow */}
+        <path
+          d={pathData}
+          stroke={`url(#pathGradient-${level})`}
+          strokeWidth="6"
+          fill="none"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          filter={`url(#glow-${level})`}
+        />
+        
+        {/* Secondary shadow path */}
         <path
           d={pathData}
           stroke={`hsl(var(--${level}))`}
-          strokeWidth="4"
+          strokeWidth="2"
           fill="none"
-          strokeOpacity="0.4"
+          strokeOpacity="0.6"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
       </svg>
 
-      {/* Session Nodes */}
+      {/* Session Nodes - ENLARGED */}
       {sessions.map((session, index) => {
         const isUnlocked = isSessionUnlocked(index);
         const isCompleted = isSessionCompleted(session);
         const leftPosition = getNodePosition(index);
-        const topPosition = 120 + (index * 160);
+        const topPosition = 150 + (index * 200);
         
         const nodeState = isCompleted ? "completed" : isUnlocked ? "unlocked" : "locked";
         
@@ -124,13 +148,10 @@ export default function DuolingoPath({ sessions, level, onSessionClick }: Duolin
         const totalProblems = session.problems.length;
         const progressPercentage = (completedProblems / totalProblems) * 100;
 
-        // Choose icon based on session type and index
+        // Enhanced icon selection
         const getSessionIcon = () => {
           if (nodeState === "completed") return CheckCircle2;
           if (nodeState === "locked") return Lock;
-          
-          // Rotate icons for variety
-          const icons = [Star, Shield, Gem, Trophy];
           return icons[index % icons.length];
         };
 
@@ -145,182 +166,186 @@ export default function DuolingoPath({ sessions, level, onSessionClick }: Duolin
               top: `${topPosition}px`,
               transform: 'translateX(-50%)'
             }}
-            initial={{ opacity: 0, scale: 0, y: 50 }}
+            initial={{ opacity: 0, scale: 0, y: 100 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ 
-              delay: index * 0.15,
+              delay: index * 0.1,
               type: "spring",
-              stiffness: 300,
-              damping: 25
+              stiffness: 200,
+              damping: 20
             }}
           >
-            {/* Individual Connection Line to Next Node */}
-            {index < sessions.length - 1 && (
-              <svg 
-                className="absolute pointer-events-none z-0"
-                style={{
-                  left: '50%',
-                  top: '80px',
-                  transform: 'translateX(-50%)',
-                  width: `${Math.abs(getNodePosition(index + 1) - leftPosition) + 50}px`,
-                  height: '100px'
-                }}
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-              >
-                <path
-                  d={`M 50 0 Q ${getNodePosition(index + 1) > leftPosition ? 75 : 25} 50 ${getNodePosition(index + 1) > leftPosition ? 100 : 0} 100`}
-                  stroke={isCompleted || isUnlocked ? `hsl(var(--${level}))` : "hsl(var(--muted-foreground))"}
-                  strokeWidth="3"
-                  fill="none"
-                  strokeOpacity={isCompleted || isUnlocked ? "0.6" : "0.3"}
-                  strokeLinecap="round"
-                />
-              </svg>
-            )}
-
-            {/* Session Node */}
+            {/* Enhanced Session Node - MUCH LARGER */}
             <motion.div
               className={`
-                relative w-20 h-20 rounded-full border-4 cursor-pointer transition-all duration-300 shadow-lg z-10
+                relative w-28 h-28 rounded-3xl border-4 cursor-pointer transition-all duration-500 shadow-2xl z-10
                 ${nodeState === "completed" 
-                  ? `${colors.primary} border-white shadow-xl` 
+                  ? `${colors.primary} border-white shadow-green-500/30` 
                   : nodeState === "unlocked"
-                  ? `bg-white ${colors.border} hover:scale-110 hover:shadow-xl`
-                  : "bg-gray-200 border-gray-300"
+                  ? `bg-white ${colors.border} hover:scale-110 hover:shadow-2xl ${colors.ring} ring-4`
+                  : "bg-gray-100 border-gray-300 shadow-gray-300/20"
                 }
               `}
               onClick={isUnlocked ? () => onSessionClick(session) : undefined}
-              whileHover={isUnlocked ? { scale: 1.1, y: -2 } : {}}
+              whileHover={isUnlocked ? { 
+                scale: 1.1, 
+                y: -8,
+                boxShadow: "0 25px 50px rgba(0,0,0,0.25)"
+              } : {}}
               whileTap={isUnlocked ? { scale: 0.95 } : {}}
               animate={nodeState === "unlocked" ? {
-                scale: [1, 1.05, 1],
+                scale: [1, 1.03, 1],
                 boxShadow: [
-                  "0 4px 20px rgba(0,0,0,0.1)",
-                  "0 8px 25px rgba(0,0,0,0.15)",
-                  "0 4px 20px rgba(0,0,0,0.1)"
+                  "0 10px 30px rgba(0,0,0,0.15)",
+                  "0 15px 40px rgba(0,0,0,0.2)",
+                  "0 10px 30px rgba(0,0,0,0.15)"
                 ]
               } : {}}
               transition={{
                 repeat: nodeState === "unlocked" ? Infinity : 0,
-                duration: 2,
+                duration: 3,
                 ease: "easeInOut"
               }}
             >
-              {/* Node Icon */}
+              {/* Node Icon - LARGER */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <SessionIcon className={`w-8 h-8 ${
+                <SessionIcon className={`w-12 h-12 ${
                   nodeState === "completed" 
-                    ? "text-white" 
+                    ? "text-white drop-shadow-lg" 
                     : nodeState === "locked" 
-                    ? "text-gray-500" 
-                    : colors.text
+                    ? "text-gray-400" 
+                    : colors.text + " drop-shadow-sm"
                 }`} />
               </div>
 
-              {/* Progress Ring for Partial Completion */}
+              {/* Enhanced Progress Ring */}
               {nodeState === "unlocked" && completedProblems > 0 && (
                 <svg className="absolute inset-0 w-full h-full transform -rotate-90">
                   <circle
                     cx="50%"
                     cy="50%"
-                    r="45%"
+                    r="48%"
                     fill="none"
-                    stroke="rgba(0,0,0,0.1)"
-                    strokeWidth="2"
+                    stroke="rgba(0,0,0,0.08)"
+                    strokeWidth="3"
                   />
                   <motion.circle
                     cx="50%"
                     cy="50%"
-                    r="45%"
+                    r="48%"
                     fill="none"
                     stroke={`hsl(var(--${level}))`}
-                    strokeWidth="2"
+                    strokeWidth="3"
                     strokeLinecap="round"
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: progressPercentage / 100 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
+                    transition={{ duration: 1.2, delay: 0.3 }}
                     style={{
-                      strokeDasharray: "1 1"
+                      strokeDasharray: "1 1",
+                      filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.1))"
                     }}
                   />
                 </svg>
               )}
 
-              {/* Crown for milestone sessions */}
+              {/* Enhanced Crown for milestone sessions */}
               {(index + 1) % 5 === 0 && isCompleted && (
                 <motion.div
-                  className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center border-2 border-white shadow-lg"
-                  animate={{ rotate: [0, 10, -10, 0] }}
+                  className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center border-3 border-white shadow-xl"
+                  animate={{ 
+                    rotate: [0, 10, -10, 0],
+                    scale: [1, 1.1, 1]
+                  }}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <Crown className="w-3 h-3 text-yellow-800" />
+                  <Crown className="w-4 h-4 text-white drop-shadow" />
                 </motion.div>
               )}
 
-              {/* Glow effect for current session */}
+              {/* Enhanced Glow effect */}
               {nodeState === "unlocked" && (
-                <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${colors.gradient} opacity-20 blur-lg scale-125 pointer-events-none`} />
+                <div className={`absolute inset-0 rounded-3xl bg-gradient-to-r ${colors.gradient} opacity-25 blur-xl scale-110 pointer-events-none`} />
+              )}
+
+              {/* Premium border effect for completed nodes */}
+              {nodeState === "completed" && (
+                <div className="absolute inset-0 rounded-3xl border-2 border-white/50 pointer-events-none" />
               )}
             </motion.div>
 
-            {/* Session Number Badge */}
-            <div className={`
-              absolute -top-2 -left-2 w-6 h-6 rounded-full border-2 border-background text-xs font-bold flex items-center justify-center z-20
-              ${nodeState === "completed" 
-                ? "bg-green-500 text-white" 
-                : nodeState === "unlocked"
-                ? `${colors.primary} text-white`
-                : "bg-gray-400 text-white"
-              }
-            `}>
+            {/* Enhanced Session Number Badge */}
+            <motion.div 
+              className={`
+                absolute -top-4 -left-4 w-8 h-8 rounded-full border-3 border-background text-sm font-bold flex items-center justify-center z-20 shadow-lg
+                ${nodeState === "completed" 
+                  ? "bg-gradient-to-br from-green-500 to-emerald-600 text-white" 
+                  : nodeState === "unlocked"
+                  ? `${colors.primary} text-white`
+                  : "bg-gray-400 text-white"
+                }
+              `}
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ delay: index * 0.1 + 0.2, type: "spring" }}
+            >
               {index + 1}
-            </div>
+            </motion.div>
 
-            {/* Session Info Card */}
+            {/* Enhanced Session Info Card */}
             <motion.div
               className={`
-                absolute left-1/2 transform -translate-x-1/2 bg-card rounded-xl shadow-lg border border-border p-3 mt-6 min-w-48 text-center z-10
+                absolute left-1/2 transform -translate-x-1/2 bg-card/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 p-4 mt-8 min-w-56 text-center z-10
                 ${nodeState === "locked" ? "opacity-50" : "opacity-100"}
               `}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: nodeState === "locked" ? 0.5 : 1, y: 0 }}
-              transition={{ delay: index * 0.15 + 0.2 }}
+              initial={{ opacity: 0, y: 20, scale: 0.9 }}
+              animate={{ 
+                opacity: nodeState === "locked" ? 0.5 : 1, 
+                y: 0,
+                scale: 1
+              }}
+              transition={{ delay: index * 0.1 + 0.3 }}
+              whileHover={{ scale: 1.02, y: -2 }}
             >
-              <h3 className="text-sm font-bold text-foreground mb-1">
+              <h3 className="text-base font-bold text-foreground mb-2">
                 {session.title}
               </h3>
-              <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground mb-1">
-                <span>{session.problems.length} problems</span>
-                <span>•</span>
+              
+              <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground mb-3">
+                <span className="flex items-center gap-1">
+                  <Target className="w-3 h-3" />
+                  {session.problems.length}
+                </span>
+                <div className="w-1 h-1 bg-muted-foreground rounded-full" />
                 <span>{session.estimatedTime}</span>
               </div>
               
-              {/* Difficulty badge */}
+              {/* Enhanced Difficulty badge */}
               <div className={`
-                inline-flex items-center px-2 py-1 rounded-full text-xs font-medium
-                ${session.difficulty === "Easy" ? "bg-green-100 text-green-800" :
-                  session.difficulty === "Medium" ? "bg-yellow-100 text-yellow-800" :
-                  "bg-red-100 text-red-800"
+                inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-3
+                ${session.difficulty === "Easy" ? "bg-green-100 text-green-800 border border-green-200" :
+                  session.difficulty === "Medium" ? "bg-yellow-100 text-yellow-800 border border-yellow-200" :
+                  "bg-red-100 text-red-800 border border-red-200"
                 }
               `}>
                 {session.difficulty}
               </div>
 
-              {/* Progress indicator */}
+              {/* Enhanced Progress indicator */}
               {nodeState === "unlocked" && completedProblems > 0 && (
-                <div className="mt-2">
-                  <div className="text-xs text-muted-foreground mb-1">
-                    {completedProblems}/{totalProblems}
+                <div className="mt-3">
+                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
+                    <span>Progress</span>
+                    <span className="font-medium">{completedProblems}/{totalProblems}</span>
                   </div>
-                  <div className="w-full bg-muted rounded-full h-1">
+                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
                     <motion.div
-                      className={`h-1 rounded-full ${colors.primary}`}
+                      className={`h-2 rounded-full ${colors.primary} shadow-sm`}
                       initial={{ width: 0 }}
                       animate={{ width: `${progressPercentage}%` }}
-                      transition={{ duration: 0.5, delay: 0.3 }}
+                      transition={{ duration: 0.8, delay: 0.5 }}
                     />
                   </div>
+                  <p className="text-xs text-muted-foreground mt-1">{Math.round(progressPercentage)}% Complete</p>
                 </div>
               )}
             </motion.div>
@@ -328,25 +353,26 @@ export default function DuolingoPath({ sessions, level, onSessionClick }: Duolin
         );
       })}
 
-      {/* Floating Achievement Badges */}
-      <div className="absolute top-4 right-4 space-y-2 z-30">
+      {/* Enhanced Floating Achievement Badges */}
+      <div className="absolute top-8 right-8 space-y-3 z-30">
         {[5, 10, 15].map(milestone => {
           const completed = sessions.slice(0, milestone).every(s => s.completed);
           return (
             <motion.div
               key={milestone}
               className={`
-                w-12 h-12 rounded-full border-2 flex items-center justify-center text-sm font-bold shadow-lg
+                w-14 h-14 rounded-2xl border-3 flex items-center justify-center text-sm font-bold shadow-xl
                 ${completed 
-                  ? "bg-yellow-400 border-yellow-500 text-yellow-800" 
-                  : "bg-gray-200 border-gray-300 text-gray-500"
+                  ? "bg-gradient-to-br from-yellow-400 to-orange-500 border-yellow-300 text-white" 
+                  : "bg-gray-100 border-gray-300 text-gray-500"
                 }
               `}
               animate={completed ? { 
                 scale: [1, 1.1, 1],
                 rotate: [0, 5, -5, 0]
               } : {}}
-              transition={{ duration: 2, repeat: Infinity }}
+              transition={{ duration: 3, repeat: Infinity }}
+              whileHover={{ scale: 1.1 }}
             >
               {milestone}
             </motion.div>
