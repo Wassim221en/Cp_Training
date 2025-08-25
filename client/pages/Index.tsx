@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import DuolingoPath from "@/components/DuolingoPath";
+import UserStatsSidebar from "@/components/UserStatssidebar";
 import SessionModal, { Session } from "@/components/SessionModal";
-import { Trophy, Users, Target, Award } from "lucide-react";
+import { mockUserData } from "@/data/mockUserData";
+import { Trophy, Users, Target, Award, TrendingUp, Brain } from "lucide-react";
 
 // Expanded beginner sessions with 18 sessions
 const beginnerSessions: Session[] = [
@@ -289,70 +291,97 @@ export default function Index() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-beginner/5 to-accent/10">
-      {/* Floating Header Stats */}
-      <div className="sticky top-20 z-40 pointer-events-none">
-        <div className="container mx-auto px-4">
+    <div className="flex min-h-screen bg-gradient-to-br from-background via-beginner/3 to-accent/5">
+      {/* User Statistics Sidebar */}
+      <UserStatsSidebar stats={mockUserData} />
+      
+      {/* Main Content Area */}
+      <div className="flex-1 overflow-hidden">
+        {/* Floating Header Stats */}
+        <div className="sticky top-20 z-40 pointer-events-none">
+          <div className="container mx-auto px-6">
+            <motion.div
+              className="flex justify-center"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="bg-card/95 backdrop-blur-lg rounded-2xl border border-border/50 px-8 py-4 shadow-2xl pointer-events-auto">
+                <div className="flex items-center gap-8 text-sm">
+                  <div className="flex items-center gap-3">
+                    <Trophy className="w-5 h-5 text-beginner" />
+                    <div className="text-center">
+                      <div className="font-bold text-lg text-foreground">{completedSessions}/{totalSessions}</div>
+                      <div className="text-xs text-muted-foreground">Sessions</div>
+                    </div>
+                  </div>
+                  <div className="w-px h-8 bg-border" />
+                  <div className="flex items-center gap-3">
+                    <Target className="w-5 h-5 text-beginner" />
+                    <div className="text-center">
+                      <div className="font-bold text-lg text-foreground">{solvedProblems}/{totalProblems}</div>
+                      <div className="text-xs text-muted-foreground">Problems</div>
+                    </div>
+                  </div>
+                  <div className="w-px h-8 bg-border" />
+                  <div className="flex items-center gap-3">
+                    <Award className="w-5 h-5 text-beginner" />
+                    <div className="text-center">
+                      <div className="font-bold text-lg text-beginner">{Math.round(overallProgress)}%</div>
+                      <div className="text-xs text-muted-foreground">Complete</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Main Header */}
+        <div className="container mx-auto px-6 py-8">
           <motion.div
-            className="flex justify-center"
+            className="text-center mb-8"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-card/90 backdrop-blur-md rounded-full border border-border/50 px-6 py-3 shadow-lg pointer-events-auto">
-              <div className="flex items-center gap-6 text-sm">
-                <div className="flex items-center gap-2">
-                  <Trophy className="w-4 h-4 text-beginner" />
-                  <span className="font-medium">{completedSessions}/{totalSessions} Sessions</span>
-                </div>
-                <div className="w-px h-4 bg-border" />
-                <div className="flex items-center gap-2">
-                  <Target className="w-4 h-4 text-beginner" />
-                  <span className="font-medium">{solvedProblems}/{totalProblems} Problems</span>
-                </div>
-                <div className="w-px h-4 bg-border" />
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-beginner" />
-                  <span className="font-medium text-beginner">{Math.round(overallProgress)}%</span>
-                </div>
+            <div className="inline-flex items-center gap-3 bg-beginner/10 text-beginner px-8 py-4 rounded-2xl border border-beginner/20 mb-8 shadow-lg">
+              <Trophy className="w-6 h-6" />
+              <span className="font-bold text-lg">Beginner Level - 18 Sessions</span>
+            </div>
+            
+            <h1 className="text-5xl font-bold text-foreground mb-6">
+              Master the <span className="text-beginner">Fundamentals</span>
+            </h1>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+              Build a solid foundation with 18 comprehensive sessions covering algorithms, data structures, and problem-solving techniques.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-6 mb-8">
+              <div className="flex items-center gap-3 bg-card/60 backdrop-blur-sm px-6 py-3 rounded-2xl border border-border/50 shadow-lg">
+                <Brain className="w-5 h-5 text-beginner" />
+                <span className="font-medium">Algorithm Mastery</span>
+              </div>
+              <div className="flex items-center gap-3 bg-card/60 backdrop-blur-sm px-6 py-3 rounded-2xl border border-border/50 shadow-lg">
+                <TrendingUp className="w-5 h-5 text-beginner" />
+                <span className="font-medium">Progressive Learning</span>
+              </div>
+              <div className="flex items-center gap-3 bg-card/60 backdrop-blur-sm px-6 py-3 rounded-2xl border border-border/50 shadow-lg">
+                <Users className="w-5 h-5 text-beginner" />
+                <span className="font-medium">15,000+ Active Learners</span>
               </div>
             </div>
           </motion.div>
+
+          {/* Enhanced Duolingo-style Learning Path */}
+          <div className="flex justify-center">
+            <DuolingoPath 
+              sessions={beginnerSessions}
+              level="beginner"
+              onSessionClick={handleSessionClick}
+            />
+          </div>
         </div>
-      </div>
-
-      {/* Main Header */}
-      <div className="container mx-auto px-4 py-8">
-        <motion.div
-          className="text-center mb-8"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <div className="inline-flex items-center gap-3 bg-beginner/10 text-beginner px-6 py-3 rounded-full border border-beginner/20 mb-6">
-            <Trophy className="w-5 h-5" />
-            <span className="font-semibold">Beginner Level - 18 Sessions</span>
-          </div>
-          
-          <h1 className="text-4xl font-bold text-foreground mb-4">
-            Master the <span className="text-beginner">Fundamentals</span>
-          </h1>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
-            Build a solid foundation with 18 comprehensive sessions covering algorithms, data structures, and problem-solving techniques.
-          </p>
-
-          <div className="inline-flex items-center gap-3 bg-accent/10 text-accent-foreground px-4 py-2 rounded-full border border-accent/20">
-            <Users className="w-4 h-4" />
-            <span className="text-sm font-medium">Join 15,000+ learners on this path</span>
-          </div>
-        </motion.div>
-
-        {/* Duolingo-style Learning Path */}
-        <DuolingoPath 
-          sessions={beginnerSessions}
-          level="beginner"
-          onSessionClick={handleSessionClick}
-        />
       </div>
 
       {/* Session Modal */}
