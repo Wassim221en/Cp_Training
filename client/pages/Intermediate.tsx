@@ -1,90 +1,127 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Zap, Clock, Trophy, ArrowRight, Code, Target } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import DuolingoPath from "@/components/DuolingoPath";
+import SessionModal, { Session } from "@/components/SessionModal";
+import { intermediateSessions } from "@/data/intermediateSessions";
+import { Zap, Target, Award, Users, TrendingUp, Brain } from "lucide-react";
 
 export default function Intermediate() {
+  const [selectedSession, setSelectedSession] = useState<Session | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSessionClick = (session: Session) => {
+    setSelectedSession(session);
+    setIsModalOpen(true);
+  };
+
+  const handleStartSession = (sessionId: string) => {
+    console.log(`Starting session: ${sessionId}`);
+    setIsModalOpen(false);
+    alert(`Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedSession(null);
+  };
+
+  const completedSessions = intermediateSessions.filter(s => s.completed).length;
+  const totalSessions = intermediateSessions.length;
+  const overallProgress = (completedSessions / totalSessions) * 100;
+  const totalProblems = intermediateSessions.reduce((acc, session) => acc + session.problems.length, 0);
+  const solvedProblems = intermediateSessions.reduce((acc, session) => 
+    acc + session.problems.filter(p => p.solved).length, 0
+  );
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Header Section */}
-      <motion.div
-        className="text-center mb-12"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="inline-flex items-center gap-3 bg-intermediate/10 text-intermediate px-6 py-3 rounded-full border border-intermediate/20 mb-6">
-          <Zap className="w-5 h-5" />
-          <span className="font-semibold">Intermediate Level</span>
-        </div>
-        
-        <h1 className="text-4xl font-bold text-foreground mb-4">
-          Level Up Your <span className="text-intermediate">Skills</span>
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          Ready to tackle more complex algorithms and data structures? This level will challenge your problem-solving abilities.
-        </p>
-      </motion.div>
-
-      {/* Coming Soon Content */}
-      <motion.div
-        className="max-w-4xl mx-auto"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <div className="bg-card/50 backdrop-blur-sm rounded-3xl border border-border p-12 text-center">
+    <div className="min-h-screen bg-gradient-to-br from-background via-intermediate/5 to-accent/10">
+      {/* Floating Header Stats */}
+      <div className="sticky top-20 z-40 pointer-events-none">
+        <div className="container mx-auto px-4">
           <motion.div
-            className="w-24 h-24 bg-intermediate/10 rounded-2xl flex items-center justify-center mx-auto mb-8"
-            animate={{ 
-              scale: [1, 1.1, 1],
-              rotate: [0, 5, -5, 0]
-            }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
+            className="flex justify-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <Zap className="w-12 h-12 text-intermediate" />
+            <div className="bg-card/90 backdrop-blur-md rounded-full border border-border/50 px-6 py-3 shadow-lg pointer-events-auto">
+              <div className="flex items-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <Zap className="w-4 h-4 text-intermediate" />
+                  <span className="font-medium">{completedSessions}/{totalSessions} Sessions</span>
+                </div>
+                <div className="w-px h-4 bg-border" />
+                <div className="flex items-center gap-2">
+                  <Target className="w-4 h-4 text-intermediate" />
+                  <span className="font-medium">{solvedProblems}/{totalProblems} Problems</span>
+                </div>
+                <div className="w-px h-4 bg-border" />
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-intermediate" />
+                  <span className="font-medium text-intermediate">{Math.round(overallProgress)}%</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
+        </div>
+      </div>
 
-          <h2 className="text-3xl font-bold text-foreground mb-4">Coming Soon!</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            We're crafting an amazing intermediate experience with advanced algorithms, dynamic programming, 
-            and graph theory challenges. Get ready to supercharge your coding skills!
+      {/* Main Header */}
+      <div className="container mx-auto px-4 py-8">
+        <motion.div
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-3 bg-intermediate/10 text-intermediate px-6 py-3 rounded-full border border-intermediate/20 mb-6">
+            <Zap className="w-5 h-5" />
+            <span className="font-semibold">Intermediate Level - 18 Sessions</span>
+          </div>
+          
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Level Up Your <span className="text-intermediate">Skills</span>
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
+            Advanced algorithms and data structures await. Master dynamic programming, graph theory, and complex problem-solving techniques.
           </p>
 
-          {/* Features Preview */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-background/50 rounded-xl p-6 border border-border">
-              <Code className="w-8 h-8 text-intermediate mb-4 mx-auto" />
-              <h3 className="font-semibold mb-2">Advanced Algorithms</h3>
-              <p className="text-sm text-muted-foreground">Dynamic programming, greedy algorithms, and divide & conquer</p>
+          <div className="flex flex-wrap justify-center gap-6 mb-6">
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full border border-border/50">
+              <Brain className="w-4 h-4 text-intermediate" />
+              <span className="text-sm font-medium">Advanced Algorithms</span>
             </div>
-            <div className="bg-background/50 rounded-xl p-6 border border-border">
-              <Target className="w-8 h-8 text-intermediate mb-4 mx-auto" />
-              <h3 className="font-semibold mb-2">Graph Theory</h3>
-              <p className="text-sm text-muted-foreground">BFS, DFS, shortest paths, and minimum spanning trees</p>
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full border border-border/50">
+              <TrendingUp className="w-4 h-4 text-intermediate" />
+              <span className="text-sm font-medium">Contest Preparation</span>
             </div>
-            <div className="bg-background/50 rounded-xl p-6 border border-border">
-              <Trophy className="w-8 h-8 text-intermediate mb-4 mx-auto" />
-              <h3 className="font-semibold mb-2">Contest Prep</h3>
-              <p className="text-sm text-muted-foreground">Time-based challenges and competition strategies</p>
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full border border-border/50">
+              <Users className="w-4 h-4 text-intermediate" />
+              <span className="text-sm font-medium">8,500+ Active Learners</span>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-intermediate hover:bg-intermediate/90">
-              <Clock className="w-4 h-4 mr-2" />
-              Notify Me When Ready
-            </Button>
-            <Button variant="outline" size="lg">
-              Continue with Beginner
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
+          {/* Difficulty Warning */}
+          <div className="inline-flex items-center gap-3 bg-warning/10 text-warning px-4 py-2 rounded-full border border-warning/20">
+            <span className="text-sm font-medium">⚡ Requires solid foundation in basic algorithms</span>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+
+        {/* Duolingo-style Learning Path */}
+        <DuolingoPath 
+          sessions={intermediateSessions}
+          level="intermediate"
+          onSessionClick={handleSessionClick}
+        />
+      </div>
+
+      {/* Session Modal */}
+      <SessionModal
+        session={selectedSession}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onStart={handleStartSession}
+      />
     </div>
   );
 }

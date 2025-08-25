@@ -1,110 +1,136 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Trophy, Crown, Target, ArrowRight, Cpu, Flame } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import DuolingoPath from "@/components/DuolingoPath";
+import SessionModal, { Session } from "@/components/SessionModal";
+import { advancedSessions } from "@/data/advancedSessions";
+import { Trophy, Target, Award, Users, Crown, Flame, Cpu } from "lucide-react";
 
 export default function Advanced() {
+  const [selectedSession, setSelectedSession] = useState<Session | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleSessionClick = (session: Session) => {
+    setSelectedSession(session);
+    setIsModalOpen(true);
+  };
+
+  const handleStartSession = (sessionId: string) => {
+    console.log(`Starting session: ${sessionId}`);
+    setIsModalOpen(false);
+    alert(`Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedSession(null);
+  };
+
+  const completedSessions = advancedSessions.filter(s => s.completed).length;
+  const totalSessions = advancedSessions.length;
+  const overallProgress = (completedSessions / totalSessions) * 100;
+  const totalProblems = advancedSessions.reduce((acc, session) => acc + session.problems.length, 0);
+  const solvedProblems = advancedSessions.reduce((acc, session) => 
+    acc + session.problems.filter(p => p.solved).length, 0
+  );
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Header Section */}
-      <motion.div
-        className="text-center mb-12"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="inline-flex items-center gap-3 bg-advanced/10 text-advanced px-6 py-3 rounded-full border border-advanced/20 mb-6">
-          <Trophy className="w-5 h-5" />
-          <span className="font-semibold">Advanced Level</span>
-        </div>
-        
-        <h1 className="text-4xl font-bold text-foreground mb-4">
-          Master <span className="text-advanced">Elite</span> Algorithms
-        </h1>
-        <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
-          For competitive programming champions. Tackle the most challenging problems and compete at the highest level.
-        </p>
-      </motion.div>
-
-      {/* Coming Soon Content */}
-      <motion.div
-        className="max-w-4xl mx-auto"
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        <div className="bg-card/50 backdrop-blur-sm rounded-3xl border border-border p-12 text-center">
+    <div className="min-h-screen bg-gradient-to-br from-background via-advanced/5 to-destructive/10">
+      {/* Floating Header Stats */}
+      <div className="sticky top-20 z-40 pointer-events-none">
+        <div className="container mx-auto px-4">
           <motion.div
-            className="w-24 h-24 bg-advanced/10 rounded-2xl flex items-center justify-center mx-auto mb-8 relative"
-            animate={{ 
-              scale: [1, 1.1, 1],
-            }}
-            transition={{ 
-              duration: 2,
-              repeat: Infinity,
-              repeatType: "reverse"
-            }}
+            className="flex justify-center"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <Trophy className="w-12 h-12 text-advanced" />
-            <motion.div
-              className="absolute -top-2 -right-2 w-6 h-6 bg-advanced rounded-full flex items-center justify-center"
-              animate={{ 
-                scale: [1, 1.2, 1],
-                rotate: 360
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "linear"
-              }}
-            >
-              <Crown className="w-3 h-3 text-white" />
-            </motion.div>
+            <div className="bg-card/90 backdrop-blur-md rounded-full border border-border/50 px-6 py-3 shadow-lg pointer-events-auto">
+              <div className="flex items-center gap-6 text-sm">
+                <div className="flex items-center gap-2">
+                  <Trophy className="w-4 h-4 text-advanced" />
+                  <span className="font-medium">{completedSessions}/{totalSessions} Sessions</span>
+                </div>
+                <div className="w-px h-4 bg-border" />
+                <div className="flex items-center gap-2">
+                  <Target className="w-4 h-4 text-advanced" />
+                  <span className="font-medium">{solvedProblems}/{totalProblems} Problems</span>
+                </div>
+                <div className="w-px h-4 bg-border" />
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-advanced" />
+                  <span className="font-medium text-advanced">{Math.round(overallProgress)}%</span>
+                </div>
+              </div>
+            </div>
           </motion.div>
+        </div>
+      </div>
 
-          <h2 className="text-3xl font-bold text-foreground mb-4">The Ultimate Challenge</h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            The most sophisticated algorithms and data structures await. This level is designed for those ready to 
-            compete in international programming contests and tackle industry-level challenges.
+      {/* Main Header */}
+      <div className="container mx-auto px-4 py-8">
+        <motion.div
+          className="text-center mb-8"
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <div className="inline-flex items-center gap-3 bg-advanced/10 text-advanced px-6 py-3 rounded-full border border-advanced/20 mb-6">
+            <Trophy className="w-5 h-5" />
+            <span className="font-semibold">Advanced Level - 18 Sessions</span>
+          </div>
+          
+          <h1 className="text-4xl font-bold text-foreground mb-4">
+            Master <span className="text-advanced">Elite</span> Algorithms
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-6">
+            The ultimate competitive programming challenge. Advanced data structures, complex algorithms, and ICPC-level problems await the brave.
           </p>
 
-          {/* Features Preview */}
-          <div className="grid md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-background/50 rounded-xl p-6 border border-border">
-              <Cpu className="w-8 h-8 text-advanced mb-4 mx-auto" />
-              <h3 className="font-semibold mb-2">Advanced Data Structures</h3>
-              <p className="text-sm text-muted-foreground">Segment trees, Fenwick trees, and advanced graph algorithms</p>
+          <div className="flex flex-wrap justify-center gap-6 mb-6">
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full border border-border/50">
+              <Cpu className="w-4 h-4 text-advanced" />
+              <span className="text-sm font-medium">Advanced Data Structures</span>
             </div>
-            <div className="bg-background/50 rounded-xl p-6 border border-border">
-              <Target className="w-8 h-8 text-advanced mb-4 mx-auto" />
-              <h3 className="font-semibold mb-2">Mathematical Algorithms</h3>
-              <p className="text-sm text-muted-foreground">Number theory, computational geometry, and optimization</p>
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full border border-border/50">
+              <Crown className="w-4 h-4 text-advanced" />
+              <span className="text-sm font-medium">ICPC World Finals</span>
             </div>
-            <div className="bg-background/50 rounded-xl p-6 border border-border">
-              <Flame className="w-8 h-8 text-advanced mb-4 mx-auto" />
-              <h3 className="font-semibold mb-2">Contest Mastery</h3>
-              <p className="text-sm text-muted-foreground">ICPC-style problems and optimization techniques</p>
+            <div className="flex items-center gap-2 bg-card/50 px-4 py-2 rounded-full border border-border/50">
+              <Users className="w-4 h-4 text-advanced" />
+              <span className="text-sm font-medium">1,800+ Elite Programmers</span>
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-advanced/10 to-destructive/10 rounded-xl p-6 mb-8 border border-advanced/20">
-            <h3 className="text-lg font-semibold mb-2 text-advanced">🔥 Elite Training</h3>
+          {/* Elite Warning */}
+          <div className="inline-flex items-center gap-3 bg-advanced/10 text-advanced px-4 py-2 rounded-full border border-advanced/20 mb-4">
+            <Flame className="w-4 h-4" />
+            <span className="text-sm font-medium">🔥 For competitive programming masters only</span>
+          </div>
+
+          <div className="bg-gradient-to-r from-advanced/10 to-destructive/10 rounded-xl p-4 max-w-2xl mx-auto border border-advanced/20">
+            <h3 className="text-lg font-semibold mb-2 text-advanced">Elite Training Ground</h3>
             <p className="text-sm text-muted-foreground">
-              This level requires mastery of intermediate concepts. Complete the previous levels to unlock these challenges.
+              This level contains the most sophisticated algorithms and data structures used in international programming contests. 
+              Expect 10-15 hours per session with problems at ICPC World Finals difficulty.
             </p>
           </div>
+        </motion.div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button size="lg" className="bg-advanced hover:bg-advanced/90">
-              <Crown className="w-4 h-4 mr-2" />
-              Join Elite Waitlist
-            </Button>
-            <Button variant="outline" size="lg">
-              Master Intermediate First
-              <ArrowRight className="w-4 h-4 ml-2" />
-            </Button>
-          </div>
-        </div>
-      </motion.div>
+        {/* Duolingo-style Learning Path */}
+        <DuolingoPath 
+          sessions={advancedSessions}
+          level="advanced"
+          onSessionClick={handleSessionClick}
+        />
+      </div>
+
+      {/* Session Modal */}
+      <SessionModal
+        session={selectedSession}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        onStart={handleStartSession}
+      />
     </div>
   );
 }
