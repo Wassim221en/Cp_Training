@@ -70,8 +70,8 @@ export default function DuolingoPath({ sessions, level, onSessionClick }: Duolin
         <svg className="w-full h-full" preserveAspectRatio="none">
           <defs>
             <linearGradient id={`pathGradient-${level}`} x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" className={`stop-color-${level}`} stopOpacity="0.2"/>
-              <stop offset="100%" className={`stop-color-${level}`} stopOpacity="0.05"/>
+              <stop offset="0%" stopColor={`hsl(var(--${level}))`} stopOpacity="0.2"/>
+              <stop offset="100%" stopColor={`hsl(var(--${level}))`} stopOpacity="0.05"/>
             </linearGradient>
           </defs>
           {/* Create winding path */}
