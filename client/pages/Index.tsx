@@ -11,86 +11,209 @@ const beginnerSessions: Session[] = [
   {
     id: "beginner-1",
     title: "Hello Algorithm World",
-    description: "Your first steps into competitive programming. Learn basic problem-solving techniques.",
+    description:
+      "Your first steps into competitive programming. Learn basic problem-solving techniques.",
     difficulty: "Easy",
     estimatedTime: "1.5 hours",
     participants: 15000,
     problems: [
-      { id: "1", title: "Hello World", difficulty: "Easy", timeEstimate: "5 min", solved: true },
-      { id: "2", title: "Simple Math", difficulty: "Easy", timeEstimate: "10 min", solved: true },
-      { id: "3", title: "Input/Output", difficulty: "Easy", timeEstimate: "15 min", solved: false },
+      {
+        id: "1",
+        title: "Hello World",
+        difficulty: "Easy",
+        timeEstimate: "5 min",
+        solved: true,
+      },
+      {
+        id: "2",
+        title: "Simple Math",
+        difficulty: "Easy",
+        timeEstimate: "10 min",
+        solved: true,
+      },
+      {
+        id: "3",
+        title: "Input/Output",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+        solved: false,
+      },
     ],
-    completed: false
+    completed: false,
   },
   {
     id: "beginner-2",
-    title: "Variables & Operations", 
-    description: "Master basic variables, arithmetic operations, and simple calculations.",
+    title: "Variables & Operations",
+    description:
+      "Master basic variables, arithmetic operations, and simple calculations.",
     difficulty: "Easy",
     estimatedTime: "2 hours",
     participants: 13500,
     problems: [
-      { id: "4", title: "Sum of Two Numbers", difficulty: "Easy", timeEstimate: "10 min" },
-      { id: "5", title: "Average Calculator", difficulty: "Easy", timeEstimate: "15 min" },
-      { id: "6", title: "Temperature Converter", difficulty: "Easy", timeEstimate: "20 min" },
-      { id: "7", title: "Simple Interest", difficulty: "Easy", timeEstimate: "25 min" },
-    ]
+      {
+        id: "4",
+        title: "Sum of Two Numbers",
+        difficulty: "Easy",
+        timeEstimate: "10 min",
+      },
+      {
+        id: "5",
+        title: "Average Calculator",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+      },
+      {
+        id: "6",
+        title: "Temperature Converter",
+        difficulty: "Easy",
+        timeEstimate: "20 min",
+      },
+      {
+        id: "7",
+        title: "Simple Interest",
+        difficulty: "Easy",
+        timeEstimate: "25 min",
+      },
+    ],
   },
   {
-    id: "beginner-3", 
+    id: "beginner-3",
     title: "Conditional Logic",
-    description: "Learn if-else statements and basic decision making in programming.",
+    description:
+      "Learn if-else statements and basic decision making in programming.",
     difficulty: "Easy",
     estimatedTime: "2.5 hours",
     participants: 12000,
     problems: [
-      { id: "8", title: "Even or Odd", difficulty: "Easy", timeEstimate: "15 min" },
-      { id: "9", title: "Grade Calculator", difficulty: "Easy", timeEstimate: "20 min" },
-      { id: "10", title: "Leap Year Check", difficulty: "Easy", timeEstimate: "25 min" },
-      { id: "11", title: "Maximum of Three", difficulty: "Easy", timeEstimate: "30 min" },
-    ]
+      {
+        id: "8",
+        title: "Even or Odd",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+      },
+      {
+        id: "9",
+        title: "Grade Calculator",
+        difficulty: "Easy",
+        timeEstimate: "20 min",
+      },
+      {
+        id: "10",
+        title: "Leap Year Check",
+        difficulty: "Easy",
+        timeEstimate: "25 min",
+      },
+      {
+        id: "11",
+        title: "Maximum of Three",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+      },
+    ],
   },
   {
     id: "beginner-4",
     title: "Loops Fundamentals",
     description: "Master for loops, while loops, and iteration patterns.",
-    difficulty: "Easy", 
+    difficulty: "Easy",
     estimatedTime: "3 hours",
     participants: 11200,
     problems: [
-      { id: "12", title: "Print Numbers", difficulty: "Easy", timeEstimate: "15 min" },
-      { id: "13", title: "Sum of N Numbers", difficulty: "Easy", timeEstimate: "20 min" },
-      { id: "14", title: "Factorial", difficulty: "Easy", timeEstimate: "25 min" },
-      { id: "15", title: "Fibonacci Sequence", difficulty: "Easy", timeEstimate: "35 min" },
-    ]
+      {
+        id: "12",
+        title: "Print Numbers",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+      },
+      {
+        id: "13",
+        title: "Sum of N Numbers",
+        difficulty: "Easy",
+        timeEstimate: "20 min",
+      },
+      {
+        id: "14",
+        title: "Factorial",
+        difficulty: "Easy",
+        timeEstimate: "25 min",
+      },
+      {
+        id: "15",
+        title: "Fibonacci Sequence",
+        difficulty: "Easy",
+        timeEstimate: "35 min",
+      },
+    ],
   },
   {
     id: "beginner-5",
     title: "Array Basics",
-    description: "Introduction to arrays, indexing, and basic array operations.",
+    description:
+      "Introduction to arrays, indexing, and basic array operations.",
     difficulty: "Easy",
     estimatedTime: "3.5 hours",
     participants: 10500,
     problems: [
-      { id: "16", title: "Array Sum", difficulty: "Easy", timeEstimate: "20 min" },
-      { id: "17", title: "Find Maximum", difficulty: "Easy", timeEstimate: "25 min" },
-      { id: "18", title: "Array Average", difficulty: "Easy", timeEstimate: "30 min" },
-      { id: "19", title: "Count Elements", difficulty: "Easy", timeEstimate: "35 min" },
-    ]
+      {
+        id: "16",
+        title: "Array Sum",
+        difficulty: "Easy",
+        timeEstimate: "20 min",
+      },
+      {
+        id: "17",
+        title: "Find Maximum",
+        difficulty: "Easy",
+        timeEstimate: "25 min",
+      },
+      {
+        id: "18",
+        title: "Array Average",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+      },
+      {
+        id: "19",
+        title: "Count Elements",
+        difficulty: "Easy",
+        timeEstimate: "35 min",
+      },
+    ],
   },
   {
     id: "beginner-6",
     title: "String Manipulation",
-    description: "Learn string operations, character manipulation, and basic string algorithms.",
+    description:
+      "Learn string operations, character manipulation, and basic string algorithms.",
     difficulty: "Easy",
-    estimatedTime: "3 hours", 
+    estimatedTime: "3 hours",
     participants: 9800,
     problems: [
-      { id: "20", title: "String Length", difficulty: "Easy", timeEstimate: "15 min" },
-      { id: "21", title: "Reverse String", difficulty: "Easy", timeEstimate: "25 min" },
-      { id: "22", title: "Count Vowels", difficulty: "Easy", timeEstimate: "30 min" },
-      { id: "23", title: "Palindrome Check", difficulty: "Easy", timeEstimate: "40 min" },
-    ]
+      {
+        id: "20",
+        title: "String Length",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+      },
+      {
+        id: "21",
+        title: "Reverse String",
+        difficulty: "Easy",
+        timeEstimate: "25 min",
+      },
+      {
+        id: "22",
+        title: "Count Vowels",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+      },
+      {
+        id: "23",
+        title: "Palindrome Check",
+        difficulty: "Easy",
+        timeEstimate: "40 min",
+      },
+    ],
   },
   {
     id: "beginner-7",
@@ -100,81 +223,206 @@ const beginnerSessions: Session[] = [
     estimatedTime: "4 hours",
     participants: 9200,
     problems: [
-      { id: "24", title: "Linear Search", difficulty: "Easy", timeEstimate: "25 min" },
-      { id: "25", title: "Binary Search", difficulty: "Easy", timeEstimate: "45 min" },
-      { id: "26", title: "Search in String", difficulty: "Easy", timeEstimate: "35 min" },
-      { id: "27", title: "Count Occurrences", difficulty: "Easy", timeEstimate: "40 min" },
-    ]
+      {
+        id: "24",
+        title: "Linear Search",
+        difficulty: "Easy",
+        timeEstimate: "25 min",
+      },
+      {
+        id: "25",
+        title: "Binary Search",
+        difficulty: "Easy",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "26",
+        title: "Search in String",
+        difficulty: "Easy",
+        timeEstimate: "35 min",
+      },
+      {
+        id: "27",
+        title: "Count Occurrences",
+        difficulty: "Easy",
+        timeEstimate: "40 min",
+      },
+    ],
   },
   {
     id: "beginner-8",
-    title: "Sorting Fundamentals", 
-    description: "Learn bubble sort, selection sort, and basic sorting concepts.",
+    title: "Sorting Fundamentals",
+    description:
+      "Learn bubble sort, selection sort, and basic sorting concepts.",
     difficulty: "Medium",
     estimatedTime: "4.5 hours",
     participants: 8600,
     problems: [
-      { id: "28", title: "Bubble Sort", difficulty: "Easy", timeEstimate: "40 min" },
-      { id: "29", title: "Selection Sort", difficulty: "Easy", timeEstimate: "45 min" },
-      { id: "30", title: "Sort Array", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "31", title: "Custom Sorting", difficulty: "Medium", timeEstimate: "60 min" },
-    ]
+      {
+        id: "28",
+        title: "Bubble Sort",
+        difficulty: "Easy",
+        timeEstimate: "40 min",
+      },
+      {
+        id: "29",
+        title: "Selection Sort",
+        difficulty: "Easy",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "30",
+        title: "Sort Array",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "31",
+        title: "Custom Sorting",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+    ],
   },
   {
     id: "beginner-9",
     title: "Two Pointers Technique",
-    description: "Master the two pointers approach for solving array problems efficiently.", 
+    description:
+      "Master the two pointers approach for solving array problems efficiently.",
     difficulty: "Medium",
     estimatedTime: "4 hours",
     participants: 8000,
     problems: [
-      { id: "32", title: "Two Sum", difficulty: "Easy", timeEstimate: "30 min" },
-      { id: "33", title: "Pair with Target", difficulty: "Medium", timeEstimate: "45 min" },
-      { id: "34", title: "Remove Duplicates", difficulty: "Medium", timeEstimate: "40 min" },
-      { id: "35", title: "Container With Water", difficulty: "Medium", timeEstimate: "60 min" },
-    ]
+      {
+        id: "32",
+        title: "Two Sum",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+      },
+      {
+        id: "33",
+        title: "Pair with Target",
+        difficulty: "Medium",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "34",
+        title: "Remove Duplicates",
+        difficulty: "Medium",
+        timeEstimate: "40 min",
+      },
+      {
+        id: "35",
+        title: "Container With Water",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+    ],
   },
   {
     id: "beginner-10",
     title: "Basic Recursion",
-    description: "Introduction to recursive thinking and solving problems recursively.",
-    difficulty: "Medium", 
+    description:
+      "Introduction to recursive thinking and solving problems recursively.",
+    difficulty: "Medium",
     estimatedTime: "5 hours",
     participants: 7400,
     problems: [
-      { id: "36", title: "Factorial Recursive", difficulty: "Easy", timeEstimate: "30 min" },
-      { id: "37", title: "Fibonacci Recursive", difficulty: "Medium", timeEstimate: "45 min" },
-      { id: "38", title: "Power Function", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "39", title: "Sum of Digits", difficulty: "Medium", timeEstimate: "40 min" },
-    ]
+      {
+        id: "36",
+        title: "Factorial Recursive",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+      },
+      {
+        id: "37",
+        title: "Fibonacci Recursive",
+        difficulty: "Medium",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "38",
+        title: "Power Function",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "39",
+        title: "Sum of Digits",
+        difficulty: "Medium",
+        timeEstimate: "40 min",
+      },
+    ],
   },
   {
     id: "beginner-11",
-    title: "Hash Tables Intro", 
-    description: "Learn hash tables, maps, and their applications in problem solving.",
+    title: "Hash Tables Intro",
+    description:
+      "Learn hash tables, maps, and their applications in problem solving.",
     difficulty: "Medium",
     estimatedTime: "5.5 hours",
     participants: 6800,
     problems: [
-      { id: "40", title: "Frequency Counter", difficulty: "Easy", timeEstimate: "35 min" },
-      { id: "41", title: "Two Sum with Hash", difficulty: "Medium", timeEstimate: "45 min" },
-      { id: "42", title: "First Unique Character", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "43", title: "Group Anagrams", difficulty: "Medium", timeEstimate: "60 min" },
-    ]
+      {
+        id: "40",
+        title: "Frequency Counter",
+        difficulty: "Easy",
+        timeEstimate: "35 min",
+      },
+      {
+        id: "41",
+        title: "Two Sum with Hash",
+        difficulty: "Medium",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "42",
+        title: "First Unique Character",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "43",
+        title: "Group Anagrams",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+    ],
   },
   {
     id: "beginner-12",
     title: "Stack Operations",
-    description: "Master stack data structure and its applications in problem solving.",
+    description:
+      "Master stack data structure and its applications in problem solving.",
     difficulty: "Medium",
-    estimatedTime: "4.5 hours", 
+    estimatedTime: "4.5 hours",
     participants: 6200,
     problems: [
-      { id: "44", title: "Valid Parentheses", difficulty: "Easy", timeEstimate: "30 min" },
-      { id: "45", title: "Implement Stack", difficulty: "Medium", timeEstimate: "45 min" },
-      { id: "46", title: "Min Stack", difficulty: "Medium", timeEstimate: "55 min" },
-      { id: "47", title: "Stack Calculator", difficulty: "Medium", timeEstimate: "60 min" },
-    ]
+      {
+        id: "44",
+        title: "Valid Parentheses",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+      },
+      {
+        id: "45",
+        title: "Implement Stack",
+        difficulty: "Medium",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "46",
+        title: "Min Stack",
+        difficulty: "Medium",
+        timeEstimate: "55 min",
+      },
+      {
+        id: "47",
+        title: "Stack Calculator",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+    ],
   },
   {
     id: "beginner-13",
@@ -184,11 +432,31 @@ const beginnerSessions: Session[] = [
     estimatedTime: "4 hours",
     participants: 5800,
     problems: [
-      { id: "48", title: "Implement Queue", difficulty: "Medium", timeEstimate: "40 min" },
-      { id: "49", title: "Circular Queue", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "50", title: "Queue with Stack", difficulty: "Medium", timeEstimate: "55 min" },
-      { id: "51", title: "Sliding Window", difficulty: "Medium", timeEstimate: "60 min" },
-    ]
+      {
+        id: "48",
+        title: "Implement Queue",
+        difficulty: "Medium",
+        timeEstimate: "40 min",
+      },
+      {
+        id: "49",
+        title: "Circular Queue",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "50",
+        title: "Queue with Stack",
+        difficulty: "Medium",
+        timeEstimate: "55 min",
+      },
+      {
+        id: "51",
+        title: "Sliding Window",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+    ],
   },
   {
     id: "beginner-14",
@@ -198,53 +466,135 @@ const beginnerSessions: Session[] = [
     estimatedTime: "5 hours",
     participants: 5400,
     problems: [
-      { id: "52", title: "Create Linked List", difficulty: "Medium", timeEstimate: "45 min" },
-      { id: "53", title: "Reverse Linked List", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "54", title: "Merge Two Lists", difficulty: "Medium", timeEstimate: "60 min" },
-      { id: "55", title: "Remove Duplicates", difficulty: "Medium", timeEstimate: "55 min" },
-    ]
+      {
+        id: "52",
+        title: "Create Linked List",
+        difficulty: "Medium",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "53",
+        title: "Reverse Linked List",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "54",
+        title: "Merge Two Lists",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+      {
+        id: "55",
+        title: "Remove Duplicates",
+        difficulty: "Medium",
+        timeEstimate: "55 min",
+      },
+    ],
   },
   {
     id: "beginner-15",
     title: "Binary Tree Intro",
-    description: "Learn tree data structures and basic tree traversal techniques.",
+    description:
+      "Learn tree data structures and basic tree traversal techniques.",
     difficulty: "Medium",
     estimatedTime: "6 hours",
     participants: 5000,
     problems: [
-      { id: "56", title: "Tree Traversal", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "57", title: "Tree Height", difficulty: "Medium", timeEstimate: "45 min" },
-      { id: "58", title: "Count Nodes", difficulty: "Medium", timeEstimate: "40 min" },
-      { id: "59", title: "Tree Sum", difficulty: "Medium", timeEstimate: "55 min" },
-    ]
+      {
+        id: "56",
+        title: "Tree Traversal",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "57",
+        title: "Tree Height",
+        difficulty: "Medium",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "58",
+        title: "Count Nodes",
+        difficulty: "Medium",
+        timeEstimate: "40 min",
+      },
+      {
+        id: "59",
+        title: "Tree Sum",
+        difficulty: "Medium",
+        timeEstimate: "55 min",
+      },
+    ],
   },
   {
-    id: "beginner-16", 
+    id: "beginner-16",
     title: "Mathematical Thinking",
-    description: "Apply mathematical concepts and number theory in programming.",
+    description:
+      "Apply mathematical concepts and number theory in programming.",
     difficulty: "Medium",
     estimatedTime: "5 hours",
     participants: 4600,
     problems: [
-      { id: "60", title: "Prime Numbers", difficulty: "Medium", timeEstimate: "45 min" },
-      { id: "61", title: "GCD and LCM", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "62", title: "Modular Arithmetic", difficulty: "Medium", timeEstimate: "55 min" },
-      { id: "63", title: "Fast Power", difficulty: "Medium", timeEstimate: "60 min" },
-    ]
+      {
+        id: "60",
+        title: "Prime Numbers",
+        difficulty: "Medium",
+        timeEstimate: "45 min",
+      },
+      {
+        id: "61",
+        title: "GCD and LCM",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "62",
+        title: "Modular Arithmetic",
+        difficulty: "Medium",
+        timeEstimate: "55 min",
+      },
+      {
+        id: "63",
+        title: "Fast Power",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+    ],
   },
   {
     id: "beginner-17",
     title: "Greedy Algorithms",
     description: "Learn greedy approach and solve optimization problems.",
-    difficulty: "Medium", 
+    difficulty: "Medium",
     estimatedTime: "5.5 hours",
     participants: 4200,
     problems: [
-      { id: "64", title: "Coin Change Greedy", difficulty: "Medium", timeEstimate: "50 min" },
-      { id: "65", title: "Activity Selection", difficulty: "Medium", timeEstimate: "60 min" },
-      { id: "66", title: "Fractional Knapsack", difficulty: "Medium", timeEstimate: "65 min" },
-      { id: "67", title: "Job Scheduling", difficulty: "Medium", timeEstimate: "70 min" },
-    ]
+      {
+        id: "64",
+        title: "Coin Change Greedy",
+        difficulty: "Medium",
+        timeEstimate: "50 min",
+      },
+      {
+        id: "65",
+        title: "Activity Selection",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+      {
+        id: "66",
+        title: "Fractional Knapsack",
+        difficulty: "Medium",
+        timeEstimate: "65 min",
+      },
+      {
+        id: "67",
+        title: "Job Scheduling",
+        difficulty: "Medium",
+        timeEstimate: "70 min",
+      },
+    ],
   },
   {
     id: "beginner-18",
@@ -254,12 +604,32 @@ const beginnerSessions: Session[] = [
     estimatedTime: "6 hours",
     participants: 3800,
     problems: [
-      { id: "68", title: "Mixed Algorithm 1", difficulty: "Medium", timeEstimate: "60 min" },
-      { id: "69", title: "Mixed Algorithm 2", difficulty: "Hard", timeEstimate: "75 min" },
-      { id: "70", title: "Challenge Problem", difficulty: "Hard", timeEstimate: "90 min" },
-      { id: "71", title: "Final Boss", difficulty: "Hard", timeEstimate: "120 min" },
-    ]
-  }
+      {
+        id: "68",
+        title: "Mixed Algorithm 1",
+        difficulty: "Medium",
+        timeEstimate: "60 min",
+      },
+      {
+        id: "69",
+        title: "Mixed Algorithm 2",
+        difficulty: "Hard",
+        timeEstimate: "75 min",
+      },
+      {
+        id: "70",
+        title: "Challenge Problem",
+        difficulty: "Hard",
+        timeEstimate: "90 min",
+      },
+      {
+        id: "71",
+        title: "Final Boss",
+        difficulty: "Hard",
+        timeEstimate: "120 min",
+      },
+    ],
+  },
 ];
 
 export default function Index() {
@@ -274,7 +644,9 @@ export default function Index() {
   const handleStartSession = (sessionId: string) => {
     console.log(`Starting session: ${sessionId}`);
     setIsModalOpen(false);
-    alert(`Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`);
+    alert(
+      `Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`,
+    );
   };
 
   const handleCloseModal = () => {
@@ -282,17 +654,20 @@ export default function Index() {
     setSelectedSession(null);
   };
 
-  const completedSessions = beginnerSessions.filter(s => s.completed).length;
+  const completedSessions = beginnerSessions.filter((s) => s.completed).length;
   const totalSessions = beginnerSessions.length;
   const overallProgress = (completedSessions / totalSessions) * 100;
-  const totalProblems = beginnerSessions.reduce((acc, session) => acc + session.problems.length, 0);
-  const solvedProblems = beginnerSessions.reduce((acc, session) => 
-    acc + session.problems.filter(p => p.solved).length, 0
+  const totalProblems = beginnerSessions.reduce(
+    (acc, session) => acc + session.problems.length,
+    0,
+  );
+  const solvedProblems = beginnerSessions.reduce(
+    (acc, session) => acc + session.problems.filter((p) => p.solved).length,
+    0,
   );
 
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-background via-beginner/3 to-accent/5">
-      
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden">
         {/* Floating Header Stats */}
@@ -309,24 +684,36 @@ export default function Index() {
                   <div className="flex items-center gap-3">
                     <Trophy className="w-5 h-5 text-beginner" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-foreground">{completedSessions}/{totalSessions}</div>
-                      <div className="text-xs text-muted-foreground">Sessions</div>
+                      <div className="font-bold text-lg text-foreground">
+                        {completedSessions}/{totalSessions}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Sessions
+                      </div>
                     </div>
                   </div>
                   <div className="w-px h-8 bg-border" />
                   <div className="flex items-center gap-3">
                     <Target className="w-5 h-5 text-beginner" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-foreground">{solvedProblems}/{totalProblems}</div>
-                      <div className="text-xs text-muted-foreground">Problems</div>
+                      <div className="font-bold text-lg text-foreground">
+                        {solvedProblems}/{totalProblems}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Problems
+                      </div>
                     </div>
                   </div>
                   <div className="w-px h-8 bg-border" />
                   <div className="flex items-center gap-3">
                     <Award className="w-5 h-5 text-beginner" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-beginner">{Math.round(overallProgress)}%</div>
-                      <div className="text-xs text-muted-foreground">Complete</div>
+                      <div className="font-bold text-lg text-beginner">
+                        {Math.round(overallProgress)}%
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Complete
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -345,14 +732,17 @@ export default function Index() {
           >
             <div className="inline-flex items-center gap-3 bg-beginner/10 text-beginner px-8 py-4 rounded-2xl border border-beginner/20 mb-8 shadow-lg">
               <Trophy className="w-6 h-6" />
-              <span className="font-bold text-lg">Beginner Level - 18 Sessions</span>
+              <span className="font-bold text-lg">
+                Beginner Level - 18 Sessions
+              </span>
             </div>
-            
+
             <h1 className="text-5xl font-bold text-foreground mb-6">
               Master the <span className="text-beginner">Fundamentals</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Build a solid foundation with 18 comprehensive sessions covering algorithms, data structures, and problem-solving techniques.
+              Build a solid foundation with 18 comprehensive sessions covering
+              algorithms, data structures, and problem-solving techniques.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-8">
@@ -373,7 +763,7 @@ export default function Index() {
 
           {/* Enhanced Duolingo-style Learning Path */}
           <div className="flex justify-center">
-            <DuolingoPath 
+            <DuolingoPath
               sessions={beginnerSessions}
               level="beginner"
               onSessionClick={handleSessionClick}

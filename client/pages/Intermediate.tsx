@@ -5,7 +5,15 @@ import UserStatsSidebar from "@/components/UserStatssidebar";
 import SessionModal, { Session } from "@/components/SessionModal";
 import { intermediateSessions } from "@/data/intermediateSessions";
 import { mockUserData } from "@/data/mockUserData";
-import { Zap, Target, Award, Users, TrendingUp, Brain, Cpu } from "lucide-react";
+import {
+  Zap,
+  Target,
+  Award,
+  Users,
+  TrendingUp,
+  Brain,
+  Cpu,
+} from "lucide-react";
 
 export default function Intermediate() {
   const [selectedSession, setSelectedSession] = useState<Session | null>(null);
@@ -19,7 +27,9 @@ export default function Intermediate() {
   const handleStartSession = (sessionId: string) => {
     console.log(`Starting session: ${sessionId}`);
     setIsModalOpen(false);
-    alert(`Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`);
+    alert(
+      `Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`,
+    );
   };
 
   const handleCloseModal = () => {
@@ -27,17 +37,22 @@ export default function Intermediate() {
     setSelectedSession(null);
   };
 
-  const completedSessions = intermediateSessions.filter(s => s.completed).length;
+  const completedSessions = intermediateSessions.filter(
+    (s) => s.completed,
+  ).length;
   const totalSessions = intermediateSessions.length;
   const overallProgress = (completedSessions / totalSessions) * 100;
-  const totalProblems = intermediateSessions.reduce((acc, session) => acc + session.problems.length, 0);
-  const solvedProblems = intermediateSessions.reduce((acc, session) => 
-    acc + session.problems.filter(p => p.solved).length, 0
+  const totalProblems = intermediateSessions.reduce(
+    (acc, session) => acc + session.problems.length,
+    0,
+  );
+  const solvedProblems = intermediateSessions.reduce(
+    (acc, session) => acc + session.problems.filter((p) => p.solved).length,
+    0,
   );
 
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-background via-intermediate/3 to-accent/5">
-      
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden">
         {/* Floating Header Stats */}
@@ -54,24 +69,36 @@ export default function Intermediate() {
                   <div className="flex items-center gap-3">
                     <Zap className="w-5 h-5 text-intermediate" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-foreground">{completedSessions}/{totalSessions}</div>
-                      <div className="text-xs text-muted-foreground">Sessions</div>
+                      <div className="font-bold text-lg text-foreground">
+                        {completedSessions}/{totalSessions}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Sessions
+                      </div>
                     </div>
                   </div>
                   <div className="w-px h-8 bg-border" />
                   <div className="flex items-center gap-3">
                     <Target className="w-5 h-5 text-intermediate" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-foreground">{solvedProblems}/{totalProblems}</div>
-                      <div className="text-xs text-muted-foreground">Problems</div>
+                      <div className="font-bold text-lg text-foreground">
+                        {solvedProblems}/{totalProblems}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Problems
+                      </div>
                     </div>
                   </div>
                   <div className="w-px h-8 bg-border" />
                   <div className="flex items-center gap-3">
                     <Award className="w-5 h-5 text-intermediate" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-intermediate">{Math.round(overallProgress)}%</div>
-                      <div className="text-xs text-muted-foreground">Complete</div>
+                      <div className="font-bold text-lg text-intermediate">
+                        {Math.round(overallProgress)}%
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Complete
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -90,14 +117,17 @@ export default function Intermediate() {
           >
             <div className="inline-flex items-center gap-3 bg-intermediate/10 text-intermediate px-8 py-4 rounded-2xl border border-intermediate/20 mb-8 shadow-lg">
               <Zap className="w-6 h-6" />
-              <span className="font-bold text-lg">Intermediate Level - 18 Sessions</span>
+              <span className="font-bold text-lg">
+                Intermediate Level - 18 Sessions
+              </span>
             </div>
-            
+
             <h1 className="text-5xl font-bold text-foreground mb-6">
               Level Up Your <span className="text-intermediate">Skills</span>
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              Advanced algorithms and data structures await. Master dynamic programming, graph theory, and complex problem-solving techniques.
+              Advanced algorithms and data structures await. Master dynamic
+              programming, graph theory, and complex problem-solving techniques.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-8">
@@ -117,13 +147,15 @@ export default function Intermediate() {
 
             {/* Difficulty Warning */}
             <div className="inline-flex items-center gap-3 bg-warning/10 text-warning px-6 py-3 rounded-2xl border border-warning/20 shadow-lg">
-              <span className="font-medium">⚡ Requires solid foundation in basic algorithms</span>
+              <span className="font-medium">
+                ⚡ Requires solid foundation in basic algorithms
+              </span>
             </div>
           </motion.div>
 
           {/* Enhanced Duolingo-style Learning Path */}
           <div className="flex justify-center">
-            <DuolingoPath 
+            <DuolingoPath
               sessions={intermediateSessions}
               level="intermediate"
               onSessionClick={handleSessionClick}

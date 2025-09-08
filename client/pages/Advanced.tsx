@@ -19,7 +19,9 @@ export default function Advanced() {
   const handleStartSession = (sessionId: string) => {
     console.log(`Starting session: ${sessionId}`);
     setIsModalOpen(false);
-    alert(`Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`);
+    alert(
+      `Session "${selectedSession?.title}" started! This would normally take you to the coding interface.`,
+    );
   };
 
   const handleCloseModal = () => {
@@ -27,17 +29,20 @@ export default function Advanced() {
     setSelectedSession(null);
   };
 
-  const completedSessions = advancedSessions.filter(s => s.completed).length;
+  const completedSessions = advancedSessions.filter((s) => s.completed).length;
   const totalSessions = advancedSessions.length;
   const overallProgress = (completedSessions / totalSessions) * 100;
-  const totalProblems = advancedSessions.reduce((acc, session) => acc + session.problems.length, 0);
-  const solvedProblems = advancedSessions.reduce((acc, session) => 
-    acc + session.problems.filter(p => p.solved).length, 0
+  const totalProblems = advancedSessions.reduce(
+    (acc, session) => acc + session.problems.length,
+    0,
+  );
+  const solvedProblems = advancedSessions.reduce(
+    (acc, session) => acc + session.problems.filter((p) => p.solved).length,
+    0,
   );
 
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-background via-advanced/3 to-destructive/5">
-      
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden">
         {/* Floating Header Stats */}
@@ -54,24 +59,36 @@ export default function Advanced() {
                   <div className="flex items-center gap-3">
                     <Trophy className="w-5 h-5 text-advanced" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-foreground">{completedSessions}/{totalSessions}</div>
-                      <div className="text-xs text-muted-foreground">Sessions</div>
+                      <div className="font-bold text-lg text-foreground">
+                        {completedSessions}/{totalSessions}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Sessions
+                      </div>
                     </div>
                   </div>
                   <div className="w-px h-8 bg-border" />
                   <div className="flex items-center gap-3">
                     <Target className="w-5 h-5 text-advanced" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-foreground">{solvedProblems}/{totalProblems}</div>
-                      <div className="text-xs text-muted-foreground">Problems</div>
+                      <div className="font-bold text-lg text-foreground">
+                        {solvedProblems}/{totalProblems}
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Problems
+                      </div>
                     </div>
                   </div>
                   <div className="w-px h-8 bg-border" />
                   <div className="flex items-center gap-3">
                     <Award className="w-5 h-5 text-advanced" />
                     <div className="text-center">
-                      <div className="font-bold text-lg text-advanced">{Math.round(overallProgress)}%</div>
-                      <div className="text-xs text-muted-foreground">Complete</div>
+                      <div className="font-bold text-lg text-advanced">
+                        {Math.round(overallProgress)}%
+                      </div>
+                      <div className="text-xs text-muted-foreground">
+                        Complete
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -90,14 +107,18 @@ export default function Advanced() {
           >
             <div className="inline-flex items-center gap-3 bg-advanced/10 text-advanced px-8 py-4 rounded-2xl border border-advanced/20 mb-8 shadow-lg">
               <Trophy className="w-6 h-6" />
-              <span className="font-bold text-lg">Advanced Level - 18 Sessions</span>
+              <span className="font-bold text-lg">
+                Advanced Level - 18 Sessions
+              </span>
             </div>
-            
+
             <h1 className="text-5xl font-bold text-foreground mb-6">
               Master <span className="text-advanced">Elite</span> Algorithms
             </h1>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-              The ultimate competitive programming challenge. Advanced data structures, complex algorithms, and ICPC-level problems await the brave.
+              The ultimate competitive programming challenge. Advanced data
+              structures, complex algorithms, and ICPC-level problems await the
+              brave.
             </p>
 
             <div className="flex flex-wrap justify-center gap-6 mb-8">
@@ -118,21 +139,27 @@ export default function Advanced() {
             {/* Elite Warning */}
             <div className="inline-flex items-center gap-3 bg-advanced/10 text-advanced px-6 py-3 rounded-2xl border border-advanced/20 mb-6 shadow-lg">
               <Flame className="w-5 h-5" />
-              <span className="font-medium">🔥 For competitive programming masters only</span>
+              <span className="font-medium">
+                🔥 For competitive programming masters only
+              </span>
             </div>
 
             <div className="bg-gradient-to-r from-advanced/10 to-destructive/10 rounded-2xl p-6 max-w-3xl mx-auto border border-advanced/20 shadow-lg">
-              <h3 className="text-xl font-bold mb-3 text-advanced">Elite Training Ground</h3>
+              <h3 className="text-xl font-bold mb-3 text-advanced">
+                Elite Training Ground
+              </h3>
               <p className="text-muted-foreground">
-                This level contains the most sophisticated algorithms and data structures used in international programming contests. 
-                Expect 10-15 hours per session with problems at ICPC World Finals difficulty.
+                This level contains the most sophisticated algorithms and data
+                structures used in international programming contests. Expect
+                10-15 hours per session with problems at ICPC World Finals
+                difficulty.
               </p>
             </div>
           </motion.div>
 
           {/* Enhanced Duolingo-style Learning Path */}
           <div className="flex justify-center">
-            <DuolingoPath 
+            <DuolingoPath
               sessions={advancedSessions}
               level="advanced"
               onSessionClick={handleSessionClick}
