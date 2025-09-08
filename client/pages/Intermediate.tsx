@@ -37,8 +37,6 @@ export default function Intermediate() {
 
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-background via-intermediate/3 to-accent/5">
-      {/* User Statistics Sidebar */}
-      <UserStatsSidebar stats={mockUserData} />
       
       {/* Main Content Area */}
       <div className="flex-1 overflow-hidden">

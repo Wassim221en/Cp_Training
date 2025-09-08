@@ -291,64 +291,6 @@ export default function DuolingoPath({ sessions, level, onSessionClick }: Duolin
               {index + 1}
             </motion.div>
 
-            {/* Enhanced Session Info Card */}
-            <motion.div
-              className={`
-                absolute left-1/2 transform -translate-x-1/2 bg-card/95 backdrop-blur-sm rounded-2xl shadow-xl border border-border/50 p-4 mt-8 min-w-56 text-center z-10
-                ${nodeState === "locked" ? "opacity-50" : "opacity-100"}
-              `}
-              initial={{ opacity: 0, y: 20, scale: 0.9 }}
-              animate={{ 
-                opacity: nodeState === "locked" ? 0.5 : 1, 
-                y: 0,
-                scale: 1
-              }}
-              transition={{ delay: index * 0.1 + 0.3 }}
-              whileHover={{ scale: 1.02, y: -2 }}
-            >
-              <h3 className="text-base font-bold text-foreground mb-2">
-                {session.title}
-              </h3>
-              
-              <div className="flex items-center justify-center gap-3 text-sm text-muted-foreground mb-3">
-                <span className="flex items-center gap-1">
-                  <Target className="w-3 h-3" />
-                  {session.problems.length}
-                </span>
-                <div className="w-1 h-1 bg-muted-foreground rounded-full" />
-                <span>{session.estimatedTime}</span>
-              </div>
-              
-              {/* Enhanced Difficulty badge */}
-              <div className={`
-                inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold mb-3
-                ${session.difficulty === "Easy" ? "bg-green-100 text-green-800 border border-green-200" :
-                  session.difficulty === "Medium" ? "bg-yellow-100 text-yellow-800 border border-yellow-200" :
-                  "bg-red-100 text-red-800 border border-red-200"
-                }
-              `}>
-                {session.difficulty}
-              </div>
-
-              {/* Enhanced Progress indicator */}
-              {nodeState === "unlocked" && completedProblems > 0 && (
-                <div className="mt-3">
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
-                    <span>Progress</span>
-                    <span className="font-medium">{completedProblems}/{totalProblems}</span>
-                  </div>
-                  <div className="w-full bg-muted rounded-full h-2 overflow-hidden">
-                    <motion.div
-                      className={`h-2 rounded-full ${colors.primary} shadow-sm`}
-                      initial={{ width: 0 }}
-                      animate={{ width: `${progressPercentage}%` }}
-                      transition={{ duration: 0.8, delay: 0.5 }}
-                    />
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1">{Math.round(progressPercentage)}% Complete</p>
-                </div>
-              )}
-            </motion.div>
           </motion.div>
         );
       })}
