@@ -31,7 +31,7 @@ const App = () => (
         </Layout>
       </BrowserRouter>
     </TooltipProvider>
-  </QueryClientProvider>ببب
+  </QueryClientProvider>
 );
 
 createRoot(document.getElementById("root")!).render(<App />);
