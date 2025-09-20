@@ -12,7 +12,7 @@
     ]
   },
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "NODE_ENV=production npm run build",
     "deploy": "cp dist/spa/index.html dist/spa/404.html && gh-pages -d dist/spa",
     "dev": "vite",
     "build": "npm run build:client && npm run build:server",
