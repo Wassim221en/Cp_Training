@@ -3,6 +3,8 @@ import path from "path";
 
 // Server build configuration
 export default defineConfig({
+  base:'/Cp_Training/',
+  plugins: [react()],
   build: {
     lib: {
       entry: path.resolve(__dirname, "server/node-build.ts"),
