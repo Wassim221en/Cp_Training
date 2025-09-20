@@ -6,15 +6,6 @@ import react from '@vitejs/plugin-react';  // <-- هذا مهم
 export default defineConfig({
   base:'/Cp_Training/',
   plugins: [react()],
-  server: {
-    fs: {
-      allow: [
-        path.resolve(__dirname, 'client'),
-        path.resolve(__dirname, 'shared'),
-        path.resolve(__dirname), // <-- يسمح بمجلد المشروع كله
-      ]
-    }
-  },
   build: {
     lib: {
       entry: path.resolve(__dirname, "server/node-build.ts"),
