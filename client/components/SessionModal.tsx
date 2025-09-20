@@ -141,7 +141,7 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
                     className={`
                       p-4 rounded-xl border-2 transition-all duration-200
                       ${problem.solved 
-                        ? "bg-success/10 border-success/20" 
+                        ? "bg-muted/50 border-border hover:border-primary/30"
                         : "bg-muted/50 border-border hover:border-primary/30"
                       }
                     `}
@@ -151,11 +151,6 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
-                        {problem.solved ? (
-                          <CheckCircle2 className="w-5 h-5 text-success" />
-                        ) : (
-                          <div className="w-5 h-5 rounded-full border-2 border-muted-foreground" />
-                        )}
                         <div>
                           <h4 className="font-medium text-foreground">{problem.title}</h4>
                           <div className="flex items-center gap-3 mt-1">
@@ -184,14 +179,6 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
                     : "Ready to start your coding journey?"
                   }
                 </p>
-                <Button 
-                  onClick={() => onStart(session.id)}
-                  className="bg-primary hover:bg-primary/90"
-                  size="lg"
-                >
-                  <Play className="w-4 h-4 mr-2" />
-                  {session.completed ? "Retry Session" : "Start Session"}
-                </Button>
               </div>
             </div>
           </motion.div>
