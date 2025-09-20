@@ -22,9 +22,9 @@ const App = () => (
       <BrowserRouter>
         <Layout>
           <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/intermediate" element={<Intermediate />} />
-            <Route path="/advanced" element={<Advanced />} />
+            <Route path="/Cp_Training/" element={<Index />} />
+            <Route path="/Cp_Training/intermediate" element={<Intermediate />} />
+            <Route path="/Cp_Training/advanced" element={<Advanced />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
