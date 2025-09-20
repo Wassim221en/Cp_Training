@@ -13,7 +13,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist/spa",
+    "deploy": "git config --global user.name \"github-actions[bot]\" && git config --global user.email \"github-actions[bot]@users.noreply.github.com\" && gh-pages -d dist/spa",
     "dev": "vite",
     "build": "npm run build:client && npm run build:server",
     "build:client": "vite build",
