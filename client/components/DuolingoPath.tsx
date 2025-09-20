@@ -93,11 +93,8 @@ export default function DuolingoPath({
   const colors = levelColors[level];
   const icons = levelIcons[level];
 
-  const isSessionUnlocked = (index: number) => {
-    if (index === 0) return true;
-    const previousSession = sessions[index - 1];
-    return previousSession.completed || false;
-  };
+  // All sessions unlocked intentionally
+  const isSessionUnlocked = (index: number) => true;
 
   const isSessionCompleted = (session: Session) => {
     return session.completed || false;
