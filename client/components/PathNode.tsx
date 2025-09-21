@@ -86,7 +86,7 @@
         {/* Node */}
         <motion.div
           className={`
-            relative w-20 h-20 rounded-2xl border-4 cursor-pointer transition-all duration-300
+            relative w-20 h-20 rounded-2xl border-4 transition-all duration-300 cursor-pointer
             ${nodeState === "completed" 
               ? `${colors.primary} border-transparent shadow-lg` 
               : nodeState === "unlocked"

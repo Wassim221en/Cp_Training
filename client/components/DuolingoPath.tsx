@@ -216,6 +216,17 @@ export default function DuolingoPath({
               damping: 20,
             }}
           >
+            {/* Title above node */}
+            <motion.div
+              className="absolute -top-10 left-1/2 -translate-x-1/2 w-44 text-center"
+              initial={{ opacity: 0, y: -6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 + 0.1 }}
+            >
+              <div className={`px-3 py-1 rounded-xl border text-xs font-medium shadow-sm bg-card/80 backdrop-blur-sm ${colors.border}`}>
+                {session.title}
+              </div>
+            </motion.div>
             {/* Enhanced Session Node - MUCH LARGER */}
             <motion.div
               className={`
