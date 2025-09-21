@@ -7,29 +7,29 @@ interface LayoutProps {
 }
 
 const levels = [
-  { 
-    id: "beginner", 
-    name: "Beginner", 
-    path: "/", 
-    icon: Star, 
+  {
+    id: "beginner",
+    name: "Level 1",
+    path: "/",
+    icon: Star,
     color: "text-beginner",
     bgColor: "bg-beginner/10",
     borderColor: "border-beginner"
   },
-  { 
-    id: "intermediate", 
-    name: "Intermediate", 
-    path: "/intermediate", 
-    icon: Zap, 
+  {
+    id: "intermediate",
+    name: "Level 2",
+    path: "/intermediate",
+    icon: Zap,
     color: "text-intermediate",
     bgColor: "bg-intermediate/10",
     borderColor: "border-intermediate"
   },
-  { 
-    id: "advanced", 
-    name: "Advanced", 
-    path: "/advanced", 
-    icon: Trophy, 
+  {
+    id: "advanced",
+    name: "Level 3",
+    path: "/advanced",
+    icon: Trophy,
     color: "text-advanced",
     bgColor: "bg-advanced/10",
     borderColor: "border-advanced"
@@ -55,17 +55,21 @@ export default function Layout({ children }: LayoutProps) {
       <header className="border-b border-border/50 bg-card/95 backdrop-blur-md sticky top-0 z-50 shadow-lg">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center justify-between">
-            <motion.div 
+            <motion.div
               className="flex items-center gap-4"
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
-                <Code2 className="w-7 h-7 text-primary-foreground" />
+              <div className="w-16 h-16 rounded-2xl to-primary/80 flex items-center justify-center shadow-none outline-none focus:outline-none">
+                <img
+                  src="/AleppoCPCIcon.png"
+                  alt="Aleppo CPC Icon"
+                  className="w-[160px] h-[160px] object-contain block"
+                />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-foreground">CodePath</h1>
+                <h1 className="text-2xl font-bold text-foreground">Aleppo CPC Training</h1>
                 <p className="text-sm text-muted-foreground">Competitive Programming Training</p>
               </div>
             </motion.div>
@@ -75,7 +79,7 @@ export default function Layout({ children }: LayoutProps) {
               {levels.map((level, index) => {
                 const Icon = level.icon;
                 const isActive = currentLevel === level.id;
-                
+
                 return (
                   <motion.div
                     key={level.id}
@@ -87,8 +91,8 @@ export default function Layout({ children }: LayoutProps) {
                       <motion.div
                         className={`
                           relative px-6 py-3 rounded-2xl border-2 transition-all duration-300 shadow-lg
-                          ${isActive 
-                            ? `${level.bgColor} ${level.borderColor} ${level.color} shadow-xl` 
+                          ${isActive
+                            ? `${level.bgColor} ${level.borderColor} ${level.color} shadow-xl`
                             : "bg-card/70 border-border/50 text-muted-foreground hover:bg-card hover:border-border hover:shadow-xl"
                           }
                         `}
