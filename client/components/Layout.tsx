@@ -63,7 +63,7 @@ export default function Layout({ children }: LayoutProps) {
             >
               <div className="w-16 h-16 rounded-2xl to-primary/80 flex items-center justify-center shadow-none outline-none focus:outline-none">
                 <img
-                  src="/AleppoCPCIcon.png"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F27abe1ecae0b4d49bbeb5b5b25259311%2F4ae0138321b540a787cab39e7f14b572?format=webp&width=800"
                   alt="Aleppo CPC Icon"
                   className="w-[160px] h-[160px] object-contain block"
                 />
