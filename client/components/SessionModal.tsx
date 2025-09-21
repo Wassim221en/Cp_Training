@@ -1,13 +1,26 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { X, Play, Clock, Users, Trophy, CheckCircle2 } from "lucide-react";
+import { X, Play, Clock, Users, Trophy, CheckCircle2, Code, Globe } from "lucide-react";
+import { SiCodeforces } from 'react-icons/si';
 import { Button } from "@/components/ui/button";
-
+import { SiCoder } from "react-icons/si";
+import { SiYoutube, SiHackerrank, SiLeetcode, SiCodechef } from "react-icons/si";
+import React, { useEffect, useRef } from "react";
 export interface Problem {
   id: string;
   title: string;
   difficulty: "Easy" | "Medium" | "Hard";
   timeEstimate: string;
   solved?: boolean;
+  url?: string;
+  source?: 
+    | "codeforces" 
+    | "youtube" 
+    | "atcoder" 
+    | "codechef"
+    | "cses"
+    | "hackerrank"
+    | "leetcode"
+    | "other";
 }
 
 export interface Session {
@@ -30,7 +43,7 @@ interface SessionModalProps {
 
 const difficultyColors = {
   Easy: "text-beginner",
-  Medium: "text-intermediate", 
+  Medium: "text-intermediate",
   Hard: "text-advanced"
 };
 
@@ -46,6 +59,18 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
   const completedProblems = session.problems.filter(p => p.solved).length;
   const totalProblems = session.problems.length;
   const progressPercentage = (completedProblems / totalProblems) * 100;
+  const problemsRef = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+    if (isOpen && problemsRef.current) {
+      try {
+        problemsRef.current.scrollTo({ top: 0, behavior: "smooth" });
+        const firstInteractive = problemsRef.current.querySelector('a, button, [tabindex]');
+        if (firstInteractive instanceof HTMLElement) firstInteractive.focus();
+      } catch (e) {
+        problemsRef.current.scrollTop = 0;
+      }
+    }
+  }, [isOpen, session?.id]);
 
   return (
     <AnimatePresence>
@@ -82,7 +107,7 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
                     )}
                   </div>
                   <p className="text-muted-foreground mb-4">{session.description}</p>
-                  
+
                   {/* Stats */}
                   <div className="flex items-center gap-6 text-sm">
                     <div className="flex items-center gap-2">
@@ -101,9 +126,9 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
                     )}
                   </div>
                 </div>
-                
-                <Button 
-                  variant="ghost" 
+
+                <Button
+                  variant="ghost"
                   size="icon"
                   onClick={onClose}
                   className="hover:bg-background/80"
@@ -134,44 +159,95 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
             {/* Problems List */}
             <div className="p-6">
               <h3 className="text-lg font-semibold mb-4">Problems</h3>
-              <div className="space-y-3">
-                {session.problems.map((problem, index) => (
-                  <motion.div
-                    key={problem.id}
-                    className={`
-                      p-4 rounded-xl border-2 transition-all duration-200
-                      ${problem.solved 
-                        ? "bg-success/10 border-success/20" 
-                        : "bg-muted/50 border-border hover:border-primary/30"
-                      }
-                    `}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                  >
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        {problem.solved ? (
-                          <CheckCircle2 className="w-5 h-5 text-success" />
-                        ) : (
-                          <div className="w-5 h-5 rounded-full border-2 border-muted-foreground" />
-                        )}
-                        <div>
-                          <h4 className="font-medium text-foreground">{problem.title}</h4>
-                          <div className="flex items-center gap-3 mt-1">
-                            <span className={`text-xs font-medium ${difficultyColors[problem.difficulty]}`}>
-                              {problem.difficulty}
-                            </span>
-                            <span className="text-xs text-muted-foreground flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              {problem.timeEstimate}
-                            </span>
+              <div ref={problemsRef} className="space-y-3 max-h-[60vh] overflow-y-auto pr-2">
+                {session.problems.map((problem, index) => {
+                  const href = problem.url;
+                  const source = problem.source
+                    || (href?.includes("youtube.com") ? "youtube"
+                      : href?.includes("codeforces.com") ? "codeforces"
+                        : href?.includes("atcoder.jp") ? "atcoder"
+                          : href?.includes("codechef.com") ? "codechef"
+                            : href?.includes("cses.fi") ? "cses"
+                              : href?.includes("hackerrank.com") ? "hackerrank"
+                                : href?.includes("leetcode.com") ? "leetcode"
+                                  : "other");
+
+                  // اختيار الأيقونة المناسبة
+                  const SourceIcon =
+                    source === "youtube" ? SiYoutube
+                      : source === "codeforces" ? SiCodeforces
+                        : source === "atcoder" ? SiCoder
+                          : source === "codechef" ? SiCodechef
+                            : source === "cses" ? Globe          // CSES أيقونتها مخصصة أو Globe
+                              : source === "hackerrank" ? SiHackerrank
+                                : source === "leetcode" ? SiLeetcode
+                                  : Globe;
+                  const content = (
+                    <div className={`p-4 rounded-xl border-2 transition-all duration-200 ${problem.solved ? "bg-muted/50 border-border hover:border-primary/30" : "bg-muted/50 border-border hover:border-primary/30"} ${href ? 'cursor-pointer' : ''}`}>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-3">
+                          <div>
+                            <h4 className="font-medium text-foreground flex items-center gap-2">
+                              {problem.title}
+                              {href && (
+                                <span className="ml-2 inline-flex items-center text-xs text-muted-foreground">
+                                  <SourceIcon className="w-4 h-4" />
+                                </span>
+                              )}
+                            </h4>
+                            <div className="flex items-center gap-3 mt-1">
+                              <span className={`text-xs font-medium ${difficultyColors[problem.difficulty]}`}>
+                                {problem.difficulty}
+                              </span>
+                              <span className="text-xs text-muted-foreground flex items-center gap-1">
+                                <Clock className="w-3 h-3" />
+                                {problem.timeEstimate}
+                              </span>
+                            </div>
                           </div>
                         </div>
+
+                        {/* External link icon/button */}
+                        {href && (
+                          <div className="ml-4">
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                window.open(href, '_blank', 'noopener');
+                              }}
+                              className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
+                              title={`Open ${source} link`}
+                            >
+                              <SourceIcon className="w-5 h-5" />
+                            </button>
+                          </div>
+                        )}
                       </div>
                     </div>
-                  </motion.div>
-                ))}
+                  );
+
+                  return (
+                    <motion.div
+                      key={problem.id}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      onClick={() => href && window.open(href, '_blank', 'noopener')}
+                      role={href ? 'link' : undefined}
+                      tabIndex={href ? 0 : undefined}
+                      onKeyDown={(e) => {
+                        if (!href) return;
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          window.open(href, '_blank', 'noopener');
+                        }
+                      }}
+                    >
+                      {content}
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
 
@@ -179,19 +255,11 @@ export default function SessionModal({ session, isOpen, onClose, onStart }: Sess
             <div className="p-6 border-t border-border bg-muted/30">
               <div className="flex items-center justify-between">
                 <p className="text-sm text-muted-foreground">
-                  {session.completed 
-                    ? "You've completed this session! You can retry to improve your skills." 
+                  {session.completed
+                    ? "You've completed this session! You can retry to improve your skills."
                     : "Ready to start your coding journey?"
                   }
                 </p>
-                <Button 
-                  onClick={() => onStart(session.id)}
-                  className="bg-primary hover:bg-primary/90"
-                  size="lg"
-                >
-                  <Play className="w-4 h-4 mr-2" />
-                  {session.completed ? "Retry Session" : "Start Session"}
-                </Button>
               </div>
             </div>
           </motion.div>
