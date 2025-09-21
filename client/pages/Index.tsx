@@ -5,38 +5,81 @@ import UserStatsSidebar from "@/components/UserStatssidebar";
 import SessionModal, { Session } from "@/components/SessionModal";
 import { mockUserData } from "@/data/mockUserData";
 import { Trophy, Users, Target, Award, TrendingUp, Brain } from "lucide-react";
+import { SiCodeforces } from 'react-icons/si';
 
 // Expanded beginner sessions with 18 sessions
 const beginnerSessions: Session[] = [
   {
     id: "beginner-1",
-    title: "Hello Algorithm World",
+    title: "Basic problems and explanation of the Codeforces",
     description:
-      "Your first steps into competitive programming. Learn basic problem-solving techniques.",
+      "",
     difficulty: "Easy",
     estimatedTime: "1.5 hours",
     participants: 15000,
     problems: [
       {
         id: "1",
-        title: "Hello World",
+        title: "explanation of the Codeforces",
         difficulty: "Easy",
         timeEstimate: "5 min",
         solved: true,
+        url:"https://youtu.be/XL1Wdk38gRw?si=wOMao7-8pwMku36P",
+        source:"youtube"
       },
       {
         id: "2",
-        title: "Simple Math",
+        title: "Watermelon",
         difficulty: "Easy",
         timeEstimate: "10 min",
         solved: true,
+        url:"https://codeforces.com/problemset/problem/4/A",
+        source:"codeforces"
       },
       {
         id: "3",
-        title: "Input/Output",
+        title: "Way Too Long Words",
         difficulty: "Easy",
         timeEstimate: "15 min",
         solved: false,
+        url:"https://codeforces.com/problemset/problem/71/A",
+        source:"codeforces"
+      },
+      {
+        id: "4",
+        title: "Team",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+        solved: false,
+        url:"https://codeforces.com/problemset/problem/231/A",
+        source:"codeforces"
+      },
+      {
+        id: "5",
+        title: "Bit++",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+        solved: false,
+        url:"https://codeforces.com/problemset/problem/282/A",
+        source:"codeforces"
+      },
+      {
+        id: "6",
+        title: "Elephant",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+        solved: false,
+        url:"https://codeforces.com/problemset/problem/617/A",
+        source:"codeforces"
+      },
+      {
+        id: "7",
+        title: "Next Round",
+        difficulty: "Easy",
+        timeEstimate: "15 min",
+        solved: false,
+        url:"https://codeforces.com/problemset/problem/158/A",
+        source:"codeforces"
       },
     ],
     completed: false,
@@ -45,7 +88,7 @@ const beginnerSessions: Session[] = [
     id: "beginner-2",
     title: "Variables & Operations",
     description:
-      "Master basic variables, arithmetic operations, and simple calculations.",
+      "",
     difficulty: "Easy",
     estimatedTime: "2 hours",
     participants: 13500,
@@ -90,6 +133,8 @@ const beginnerSessions: Session[] = [
         title: "Even or Odd",
         difficulty: "Easy",
         timeEstimate: "15 min",
+        url:"codeforce",
+        source:"codeforces"
       },
       {
         id: "9",
