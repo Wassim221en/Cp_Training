@@ -35,7 +35,7 @@ const App = () => {
         <Toaster />
         <Sonner />
         <BrowserRouter basename="/Cp_Training">
-          <Layout hideHeader={showSplash}>
+          <Layout >
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/intermediate" element={<Intermediate />} />
