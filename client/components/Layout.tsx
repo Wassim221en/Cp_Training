@@ -9,7 +9,7 @@ interface LayoutProps {
 const levels = [
   { 
     id: "beginner", 
-    name: "Beginner", 
+    name: "Level 1", 
     path: "/", 
     icon: Star, 
     color: "text-beginner",
@@ -18,7 +18,7 @@ const levels = [
   },
   { 
     id: "intermediate", 
-    name: "Intermediate", 
+    name: "Level 2", 
     path: "/intermediate", 
     icon: Zap, 
     color: "text-intermediate",
@@ -27,7 +27,7 @@ const levels = [
   },
   { 
     id: "advanced", 
-    name: "Advanced", 
+    name: "Level 3", 
     path: "/advanced", 
     icon: Trophy, 
     color: "text-advanced",
