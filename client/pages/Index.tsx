@@ -820,9 +820,17 @@ export default function Index() {
           />
           
           </div>
-          <div style={{ position: "absolute", left: -150, top: 2700 , width:1000}}>
+          <div style={{ position: "absolute", left: -150, top: 2500 , width:1000}}>
           <DotLottieReact
             src="https://lottie.host/c03c10be-1092-4154-85eb-84e790d32a4f/8QsuFU78Gt.lottie"
+            loop
+            autoplay
+          />
+          
+          </div>
+          <div style={{ position: "absolute", left: -100, top: 3700 , width:900}}>
+          <DotLottieReact
+            src="https://lottie.host/8c987491-08f8-434f-ab9b-ab4894ad49ff/c54ZbgxNgA.lottie"
             loop
             autoplay
           />
