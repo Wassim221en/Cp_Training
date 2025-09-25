@@ -86,7 +86,7 @@ const beginnerSessions: Session[] = [
   },
   {
     id: "beginner-2",
-    title: "Variables & Operations",
+    title: "Complexity",
     description:
       "",
     difficulty: "Easy",
@@ -121,38 +121,44 @@ const beginnerSessions: Session[] = [
   },
   {
     id: "beginner-3",
-    title: "Conditional Logic",
+    title: "Frequency Array",
     description:
-      "Learn if-else statements and basic decision making in programming.",
+      "",
     difficulty: "Easy",
     estimatedTime: "2.5 hours",
     participants: 12000,
     problems: [
       {
         id: "8",
-        title: "Even or Odd",
+        title: "Frequency Array Explanation",
         difficulty: "Easy",
         timeEstimate: "15 min",
-        url: "codeforce",
-        source: "codeforces"
+        url: "https://www.youtube.com/watch?v=73dAQba23-I&pp=ygUl2LnYp9iv2YQg2KfZhNmG2LPZitmFIGZyZXF1ZW1jeSBhcnJheQ%3D%3D",
+        source: "youtube"
       },
       {
         id: "9",
-        title: "Grade Calculator",
+        title: "B. Permutation",
         difficulty: "Easy",
         timeEstimate: "20 min",
+        url:"https://codeforces.com/contest/137/problem/B",
+        source:"codeforces"
       },
       {
         id: "10",
-        title: "Leap Year Check",
+        title: "A. Pangram",
         difficulty: "Easy",
         timeEstimate: "25 min",
+        url:"https://codeforces.com/problemset/problem/520/A",
+        source:"codeforces"
       },
       {
         id: "11",
-        title: "Maximum of Three",
+        title: "A. Next Test",
         difficulty: "Easy",
         timeEstimate: "30 min",
+        url:"https://codeforces.com/contest/27/problem/A",
+        source:"codeforces"
       },
     ],
   },
