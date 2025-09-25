@@ -153,63 +153,111 @@ const beginnerSessions: Session[] = [
         source:"codeforces"
       },
       {
-        id: "11",
+        id: "12",
         title: "A. Next Test",
         difficulty: "Easy",
         timeEstimate: "30 min",
         url:"https://codeforces.com/contest/27/problem/A",
         source:"codeforces"
       },
+      {
+        id: "13",
+        title: "A. Presents",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+        url:"http://codeforces.com/problemset/problem/136/A",
+        source:"codeforces"
+      },
+      {
+        id: "14",
+        title: "B. Remove Prefix",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+        url:"https://codeforces.com/problemset/problem/1714/B",
+        source:"codeforces"
+      },
+      {
+        id: "15",
+        title: "A. Yaroslav and Permutations",
+        difficulty: "Easy",
+        timeEstimate: "30 min",
+        url:"https://codeforces.com/problemset/problem/296/A",
+        source:"codeforces"
+      },
     ],
   },
   {
     id: "beginner-4",
-    title: "Loops Fundamentals",
+    title: "Cumulative Sum",
     description: "Master for loops, while loops, and iteration patterns.",
     difficulty: "Easy",
     estimatedTime: "3 hours",
     participants: 11200,
     problems: [
       {
-        id: "12",
+        id: "16",
         title: "Print Numbers",
         difficulty: "Easy",
         timeEstimate: "15 min",
       },
       {
-        id: "13",
-        title: "Sum of N Numbers",
+        id: "15",
+        title: "Static Range Sum Queries",
         difficulty: "Easy",
         timeEstimate: "20 min",
+        url:"https://cses.fi/problemset/task/1646",
+        source:"cses"
       },
       {
-        id: "14",
-        title: "Factorial",
+        id: "16",
+        title: "B. Kuriyama Mirai's Stones",
         difficulty: "Easy",
         timeEstimate: "25 min",
+        url:"https://codeforces.com/contest/433/problem/B",
+        source:"codeforces"
       },
       {
-        id: "15",
-        title: "Fibonacci Sequence",
+        id: "17",
+        title: "B. Fence",
         difficulty: "Easy",
         timeEstimate: "35 min",
+        url:"https://codeforces.com/contest/363/problem/B",
+        source:"codeforces"
+      },
+      {
+        id: "18",
+        title: "B. Ilya and Queries",
+        difficulty: "Easy",
+        timeEstimate: "35 min",
+        url:"https://codeforces.com/contest/313/problem/B",
+        source:"codeforces"
+      },
+      {
+        id: "19",
+        title: "B. Karen and Coffeeس",
+        difficulty: "Easy",
+        timeEstimate: "35 min",
+        url:"https://codeforces.com/problemset/problem/816/B",
+        source:"codeforces"
       },
     ],
   },
   {
     id: "beginner-5",
-    title: "Array Basics",
+    title: "STL",
     description:
-      "Introduction to arrays, indexing, and basic array operations.",
+      "",
     difficulty: "Easy",
     estimatedTime: "3.5 hours",
     participants: 10500,
     problems: [
       {
-        id: "16",
-        title: "Array Sum",
+        id: "20",
+        title: "Introduction To STL",
         difficulty: "Easy",
         timeEstimate: "20 min",
+        url:"https://www.youtube.com/watch?v=4hhz69S15wU&list=PLCInYL3l2AainAE4Xq2kdNGDfG0bys2xp&index=1&pp=iAQB",
+        source:"youtube"
       },
       {
         id: "17",

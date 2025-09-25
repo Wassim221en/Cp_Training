@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useLocation, Link } from "react-router-dom";
 import { Trophy, Star, Zap, Code2, Menu, X } from "lucide-react";
-
+import Footer from "@/components/Footer";
 interface LayoutProps {
   children: React.ReactNode;
   hideHeader?: boolean;
@@ -185,6 +185,7 @@ export default function Layout({ children, hideHeader }: LayoutProps) {
       >
         {children}
       </motion.div>
+      <Footer />
     </div>
   );
 }
