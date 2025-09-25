@@ -6,7 +6,7 @@ import SessionModal, { Session } from "@/components/SessionModal";
 import { mockUserData } from "@/data/mockUserData";
 import { Trophy, Users, Target, Award, TrendingUp, Brain } from "lucide-react";
 import { SiCodeforces } from 'react-icons/si';
-
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 // Expanded beginner sessions with 18 sessions
 const beginnerSessions: Session[] = [
   {
@@ -24,8 +24,8 @@ const beginnerSessions: Session[] = [
         difficulty: "Easy",
         timeEstimate: "5 min",
         solved: true,
-        url:"https://youtu.be/XL1Wdk38gRw?si=wOMao7-8pwMku36P",
-        source:"youtube"
+        url: "https://youtu.be/XL1Wdk38gRw?si=wOMao7-8pwMku36P",
+        source: "youtube"
       },
       {
         id: "2",
@@ -33,8 +33,8 @@ const beginnerSessions: Session[] = [
         difficulty: "Easy",
         timeEstimate: "10 min",
         solved: true,
-        url:"https://codeforces.com/problemset/problem/4/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/4/A",
+        source: "codeforces"
       },
       {
         id: "3",
@@ -42,8 +42,8 @@ const beginnerSessions: Session[] = [
         difficulty: "Easy",
         timeEstimate: "15 min",
         solved: false,
-        url:"https://codeforces.com/problemset/problem/71/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/71/A",
+        source: "codeforces"
       },
       {
         id: "4",
@@ -51,8 +51,8 @@ const beginnerSessions: Session[] = [
         difficulty: "Easy",
         timeEstimate: "15 min",
         solved: false,
-        url:"https://codeforces.com/problemset/problem/231/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/231/A",
+        source: "codeforces"
       },
       {
         id: "5",
@@ -60,8 +60,8 @@ const beginnerSessions: Session[] = [
         difficulty: "Easy",
         timeEstimate: "15 min",
         solved: false,
-        url:"https://codeforces.com/problemset/problem/282/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/282/A",
+        source: "codeforces"
       },
       {
         id: "6",
@@ -69,8 +69,8 @@ const beginnerSessions: Session[] = [
         difficulty: "Easy",
         timeEstimate: "15 min",
         solved: false,
-        url:"https://codeforces.com/problemset/problem/617/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/617/A",
+        source: "codeforces"
       },
       {
         id: "7",
@@ -78,8 +78,8 @@ const beginnerSessions: Session[] = [
         difficulty: "Easy",
         timeEstimate: "15 min",
         solved: false,
-        url:"https://codeforces.com/problemset/problem/158/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/158/A",
+        source: "codeforces"
       },
     ],
     completed: false,
@@ -133,8 +133,8 @@ const beginnerSessions: Session[] = [
         title: "Even or Odd",
         difficulty: "Easy",
         timeEstimate: "15 min",
-        url:"codeforce",
-        source:"codeforces"
+        url: "codeforce",
+        source: "codeforces"
       },
       {
         id: "9",
@@ -805,7 +805,29 @@ export default function Index() {
               </div>
             </div>
           </motion.div>
-
+          <div style={{ position: "absolute", left: -150, top: 1000 , width:1000}}>
+          <DotLottieReact
+            src="https://lottie.host/c1892744-3473-4c95-8710-5cb5fed5b0f3/6JdDaI9RNR.lottie"
+            loop
+            autoplay
+          />
+          </div>
+          <div style={{ position: "absolute", right: -150, top: 2000 , width:1000}}>
+          <DotLottieReact
+            src="https://lottie.host/2b240bad-36f5-40ff-af86-08c6465af3db/s1ho1fRkOR.lottie"
+            loop
+            autoplay
+          />
+          
+          </div>
+          <div style={{ position: "absolute", left: -150, top: 2700 , width:1000}}>
+          <DotLottieReact
+            src="https://lottie.host/c03c10be-1092-4154-85eb-84e790d32a4f/8QsuFU78Gt.lottie"
+            loop
+            autoplay
+          />
+          
+          </div>
           {/* Enhanced Duolingo-style Learning Path */}
           <div className="flex justify-center">
             <DuolingoPath
@@ -824,6 +846,8 @@ export default function Index() {
         onClose={handleCloseModal}
         onStart={handleStartSession}
       />
+
     </div>
+
   );
 }
