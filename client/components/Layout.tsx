@@ -9,29 +9,29 @@ interface LayoutProps {
 }
 
 const levels = [
-  { 
-    id: "beginner", 
-    name: "Beginner", 
-    path: "/", 
-    icon: Star, 
+  {
+    id: "beginner",
+    name: "Beginner",
+    path: "/",
+    icon: Star,
     color: "text-beginner",
     bgColor: "bg-beginner/10",
     borderColor: "border-beginner"
   },
-  { 
-    id: "intermediate", 
-    name: "Intermediate", 
-    path: "/intermediate", 
-    icon: Zap, 
+  {
+    id: "intermediate",
+    name: "Intermediate",
+    path: "/intermediate",
+    icon: Zap,
     color: "text-intermediate",
     bgColor: "bg-intermediate/10",
     borderColor: "border-intermediate"
   },
-  { 
-    id: "advanced", 
-    name: "Advanced", 
-    path: "/advanced", 
-    icon: Trophy, 
+  {
+    id: "advanced",
+    name: "Advanced",
+    path: "/advanced",
+    icon: Trophy,
     color: "text-advanced",
     bgColor: "bg-advanced/10",
     borderColor: "border-advanced"
@@ -64,11 +64,15 @@ export default function Layout({ children, hideHeader }: LayoutProps) {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-lg">
-                  <Code2 className="w-7 h-7 text-primary-foreground" />
+                <div className="w-16 h-16 rounded-2xl to-primary/80 flex items-center justify-center shadow-none outline-none focus:outline-none">
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets%2F27abe1ecae0b4d49bbeb5b5b25259311%2F4ae0138321b540a787cab39e7f14b572?format=webp&width=800"
+                    alt="Aleppo CPC Icon"
+                    className="w-[160px] h-[160px] object-contain block"
+                  />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold text-foreground">CodePath</h1>
+                  <h1 className="text-2xl font-bold text-foreground">Aleppo CPC Training</h1>
                   <p className="text-sm text-muted-foreground">Competitive Programming Training</p>
                 </div>
               </motion.div>
@@ -99,16 +103,16 @@ export default function Layout({ children, hideHeader }: LayoutProps) {
                     >
                       <Link to={level.path}>
                         <motion.div
-                                      className={`
+                          className={`
                                         relative px-3 py-2 sm:px-6 sm:py-3 rounded-2xl border-2 transition-all duration-300 shadow-lg
                                         ${isActive
-                                          ? `${level.bgColor} ${level.borderColor} ${level.color} shadow-xl`
-                                          : "bg-card/70 border-border/50 text-muted-foreground hover:bg-card hover:border-border hover:shadow-xl"
-                                        }
+                              ? `${level.bgColor} ${level.borderColor} ${level.color} shadow-xl`
+                              : "bg-card/70 border-border/50 text-muted-foreground hover:bg-card hover:border-border hover:shadow-xl"
+                            }
                                       `}
-                                      whileHover={{ scale: 1.05, y: -2 }}
-                                      whileTap={{ scale: 0.95 }}
-                                    >
+                          whileHover={{ scale: 1.05, y: -2 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
                           <div className="flex items-center gap-3">
                             <Icon className="w-5 h-5" />
                             <span className="font-semibold">{level.name}</span>
