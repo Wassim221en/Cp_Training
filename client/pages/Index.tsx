@@ -196,9 +196,11 @@ const beginnerSessions: Session[] = [
     problems: [
       {
         id: "16",
-        title: "Print Numbers",
+        title: "Cumulative Sum Explanation",
         difficulty: "Easy",
         timeEstimate: "15 min",
+        url:"https://www.youtube.com/watch?v=8CjGHCDNpYo&feature=youtu.be",
+        source:"youtube"
       },
       {
         id: "15",
