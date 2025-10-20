@@ -141,48 +141,48 @@ const beginnerSessions: Session[] = [
         title: "B. Permutation",
         difficulty: "Easy",
         timeEstimate: "20 min",
-        url:"https://codeforces.com/contest/137/problem/B",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/137/problem/B",
+        source: "codeforces"
       },
       {
         id: "10",
         title: "A. Pangram",
         difficulty: "Easy",
         timeEstimate: "25 min",
-        url:"https://codeforces.com/problemset/problem/520/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/520/A",
+        source: "codeforces"
       },
       {
         id: "12",
         title: "A. Next Test",
         difficulty: "Easy",
         timeEstimate: "30 min",
-        url:"https://codeforces.com/contest/27/problem/A",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/27/problem/A",
+        source: "codeforces"
       },
       {
         id: "13",
         title: "A. Presents",
         difficulty: "Easy",
         timeEstimate: "30 min",
-        url:"http://codeforces.com/problemset/problem/136/A",
-        source:"codeforces"
+        url: "http://codeforces.com/problemset/problem/136/A",
+        source: "codeforces"
       },
       {
         id: "14",
         title: "B. Remove Prefix",
         difficulty: "Easy",
         timeEstimate: "30 min",
-        url:"https://codeforces.com/problemset/problem/1714/B",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/1714/B",
+        source: "codeforces"
       },
       {
         id: "15",
         title: "A. Yaroslav and Permutations",
         difficulty: "Easy",
         timeEstimate: "30 min",
-        url:"https://codeforces.com/problemset/problem/296/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/296/A",
+        source: "codeforces"
       },
     ],
   },
@@ -199,48 +199,48 @@ const beginnerSessions: Session[] = [
         title: "Cumulative Sum Explanation",
         difficulty: "Easy",
         timeEstimate: "15 min",
-        url:"https://www.youtube.com/watch?v=8CjGHCDNpYo&feature=youtu.be",
-        source:"youtube"
+        url: "https://www.youtube.com/watch?v=8CjGHCDNpYo&feature=youtu.be",
+        source: "youtube"
       },
       {
         id: "15",
         title: "Static Range Sum Queries",
         difficulty: "Easy",
         timeEstimate: "20 min",
-        url:"https://cses.fi/problemset/task/1646",
-        source:"cses"
+        url: "https://cses.fi/problemset/task/1646",
+        source: "cses"
       },
       {
         id: "16",
         title: "B. Kuriyama Mirai's Stones",
         difficulty: "Easy",
         timeEstimate: "25 min",
-        url:"https://codeforces.com/contest/433/problem/B",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/433/problem/B",
+        source: "codeforces"
       },
       {
         id: "17",
         title: "B. Fence",
         difficulty: "Easy",
         timeEstimate: "35 min",
-        url:"https://codeforces.com/contest/363/problem/B",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/363/problem/B",
+        source: "codeforces"
       },
       {
         id: "18",
         title: "B. Ilya and Queries",
         difficulty: "Easy",
         timeEstimate: "35 min",
-        url:"https://codeforces.com/contest/313/problem/B",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/313/problem/B",
+        source: "codeforces"
       },
       {
         id: "19",
         title: "B. Karen and Coffeeس",
         difficulty: "Easy",
         timeEstimate: "35 min",
-        url:"https://codeforces.com/problemset/problem/816/B",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/816/B",
+        source: "codeforces"
       },
     ],
   },
@@ -258,8 +258,8 @@ const beginnerSessions: Session[] = [
         title: "Introduction To STL",
         difficulty: "Easy",
         timeEstimate: "20 min",
-        url:"https://www.youtube.com/watch?v=4hhz69S15wU&list=PLCInYL3l2AainAE4Xq2kdNGDfG0bys2xp&index=1&pp=iAQB",
-        source:"youtube"
+        url: "https://www.youtube.com/watch?v=4hhz69S15wU&list=PLCInYL3l2AainAE4Xq2kdNGDfG0bys2xp&index=1&pp=iAQB",
+        source: "youtube"
       },
       {
         id: "17",
@@ -283,36 +283,92 @@ const beginnerSessions: Session[] = [
   },
   {
     id: "beginner-6",
-    title: "String Manipulation",
+    title: "Bitmask",
     description:
-      "Learn string operations, character manipulation, and basic string algorithms.",
+      "",
     difficulty: "Easy",
     estimatedTime: "3 hours",
-    participants: 9800,
+    participants: 0,
     problems: [
       {
         id: "20",
-        title: "String Length",
+        title: "Bitwise Operation & Bitmask Lecturer (Arabic)",
         difficulty: "Easy",
         timeEstimate: "15 min",
+        url: "https://www.youtube.com/watch?v=Q2ivPjUprMI&t=1320s",
+        source: "youtube"
       },
       {
         id: "21",
-        title: "Reverse String",
+        title: "A. Cirno's Perfect Bitmasks Classroom",
         difficulty: "Easy",
         timeEstimate: "25 min",
+        url: "https://codeforces.com/problemset/problem/1688/A?f0a28=1",
+        source: "codeforces"
       },
       {
         id: "22",
-        title: "Count Vowels",
+        title: "A. And Then There Were K",
         difficulty: "Easy",
         timeEstimate: "30 min",
+        url:"https://codeforces.com/problemset/problem/1527/A",
+        source:"codeforces"
       },
       {
         id: "23",
-        title: "Palindrome Check",
+        title: "A. Odd One Out",
         difficulty: "Easy",
         timeEstimate: "40 min",
+        url:"https://codeforces.com/problemset/problem/1915/A",
+        source:"codeforces"
+      },
+      {
+        id: "24",
+        title: "A. XORwice",
+        difficulty: "Easy",
+        timeEstimate: "40 min",
+        url:"https://codeforces.com/problemset/problem/1421/A",
+        source:"codeforces"
+      },
+      {
+        id: "25",
+        title: "A. Raising Bacteria",
+        difficulty: "Easy",
+        timeEstimate: "40 min",
+        url:"https://codeforces.com/contest/579/problem/A",
+        source:"codeforces"
+      },
+      {
+        id: "26",
+        title: "A. XOR Mixup",
+        difficulty: "Easy",
+        timeEstimate: "40 min",
+        url:"https://codeforces.com/contest/1698/problem/A",
+        source:"codeforces"
+      },
+      {
+        id: "27",
+        title: "B. Petr and a Combination Lock",
+        difficulty: "Hard",
+        timeEstimate: "40 min",
+        url:"https://codeforces.com/contest/1097/problem/B",
+        source:"codeforces"
+      },
+      {
+        id: "28",
+        title: "B. AND Sorting",
+        difficulty: "Hard",
+        timeEstimate: "40 min",
+        url:"https://codeforces.com/contest/1682/problem/B",
+        source:"codeforces"
+      },
+      {
+        id: "29",
+        title: "B. Johnny and His Hobbies",
+        difficulty: "Hard",
+        timeEstimate: "40 min",
+        url:"https://codeforces.com/contest/1362/problem/B",
+        source:"codeforces"
       },
     ],
   },
@@ -861,36 +917,36 @@ export default function Index() {
               </div>
             </div>
           </motion.div>
-          <div style={{ position: "absolute", left: -150, top: 1000 , width:1000}}>
-          <DotLottieReact
-            src="https://lottie.host/c1892744-3473-4c95-8710-5cb5fed5b0f3/6JdDaI9RNR.lottie"
-            loop
-            autoplay
-          />
+          <div style={{ position: "absolute", left: -150, top: 1000, width: 1000 }}>
+            <DotLottieReact
+              src="https://lottie.host/c1892744-3473-4c95-8710-5cb5fed5b0f3/6JdDaI9RNR.lottie"
+              loop
+              autoplay
+            />
           </div>
-          <div style={{ position: "absolute", right: -150, top: 2000 , width:1000}}>
-          <DotLottieReact
-            src="https://lottie.host/2b240bad-36f5-40ff-af86-08c6465af3db/s1ho1fRkOR.lottie"
-            loop
-            autoplay
-          />
-          
+          <div style={{ position: "absolute", right: -150, top: 2000, width: 1000 }}>
+            <DotLottieReact
+              src="https://lottie.host/2b240bad-36f5-40ff-af86-08c6465af3db/s1ho1fRkOR.lottie"
+              loop
+              autoplay
+            />
+
           </div>
-          <div style={{ position: "absolute", left: -150, top: 2500 , width:1000}}>
-          <DotLottieReact
-            src="https://lottie.host/c03c10be-1092-4154-85eb-84e790d32a4f/8QsuFU78Gt.lottie"
-            loop
-            autoplay
-          />
-          
+          <div style={{ position: "absolute", left: -150, top: 2500, width: 1000 }}>
+            <DotLottieReact
+              src="https://lottie.host/c03c10be-1092-4154-85eb-84e790d32a4f/8QsuFU78Gt.lottie"
+              loop
+              autoplay
+            />
+
           </div>
-          <div style={{ position: "absolute", left: -100, top: 3700 , width:900}}>
-          <DotLottieReact
-            src="https://lottie.host/8c987491-08f8-434f-ab9b-ab4894ad49ff/c54ZbgxNgA.lottie"
-            loop
-            autoplay
-          />
-          
+          <div style={{ position: "absolute", left: -100, top: 3700, width: 900 }}>
+            <DotLottieReact
+              src="https://lottie.host/8c987491-08f8-434f-ab9b-ab4894ad49ff/c54ZbgxNgA.lottie"
+              loop
+              autoplay
+            />
+
           </div>
           {/* Enhanced Duolingo-style Learning Path */}
           <div className="flex justify-center">
