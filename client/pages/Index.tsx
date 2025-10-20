@@ -311,101 +311,174 @@ const beginnerSessions: Session[] = [
         title: "A. And Then There Were K",
         difficulty: "Easy",
         timeEstimate: "30 min",
-        url:"https://codeforces.com/problemset/problem/1527/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/1527/A",
+        source: "codeforces"
       },
       {
         id: "23",
         title: "A. Odd One Out",
         difficulty: "Easy",
         timeEstimate: "40 min",
-        url:"https://codeforces.com/problemset/problem/1915/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/1915/A",
+        source: "codeforces"
       },
       {
         id: "24",
         title: "A. XORwice",
         difficulty: "Easy",
         timeEstimate: "40 min",
-        url:"https://codeforces.com/problemset/problem/1421/A",
-        source:"codeforces"
+        url: "https://codeforces.com/problemset/problem/1421/A",
+        source: "codeforces"
       },
       {
         id: "25",
         title: "A. Raising Bacteria",
         difficulty: "Easy",
         timeEstimate: "40 min",
-        url:"https://codeforces.com/contest/579/problem/A",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/579/problem/A",
+        source: "codeforces"
       },
       {
         id: "26",
         title: "A. XOR Mixup",
         difficulty: "Easy",
         timeEstimate: "40 min",
-        url:"https://codeforces.com/contest/1698/problem/A",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/1698/problem/A",
+        source: "codeforces"
       },
       {
         id: "27",
         title: "B. Petr and a Combination Lock",
         difficulty: "Hard",
         timeEstimate: "40 min",
-        url:"https://codeforces.com/contest/1097/problem/B",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/1097/problem/B",
+        source: "codeforces"
       },
       {
         id: "28",
         title: "B. AND Sorting",
         difficulty: "Hard",
         timeEstimate: "40 min",
-        url:"https://codeforces.com/contest/1682/problem/B",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/1682/problem/B",
+        source: "codeforces"
       },
       {
         id: "29",
         title: "B. Johnny and His Hobbies",
         difficulty: "Hard",
         timeEstimate: "40 min",
-        url:"https://codeforces.com/contest/1362/problem/B",
-        source:"codeforces"
+        url: "https://codeforces.com/contest/1362/problem/B",
+        source: "codeforces"
       },
     ],
   },
   {
-    id: "beginner-7",
-    title: "Searching Algorithms",
-    description: "Master linear search and binary search techniques.",
-    difficulty: "Easy",
-    estimatedTime: "4 hours",
-    participants: 9200,
-    problems: [
+    "id": "beginner-6",
+    "title": "Two Pointers Technique",
+    "description": "",
+    "difficulty": "Easy",
+    "estimatedTime": "3 hours",
+    "participants": 0,
+    "problems": [
       {
-        id: "24",
-        title: "Linear Search",
+        id: "30",
+        title: "Two Pointers Tutorial (YouTube)",
         difficulty: "Easy",
-        timeEstimate: "25 min",
+        timeEstimate: "15 min",
+        url: "https://www.youtube.com/watch?v=56BVIlPt4og",
+        source: "youtube"
       },
       {
-        id: "25",
-        title: "Binary Search",
+        id: "31",
+        title: "A. Merging Arrays",
         difficulty: "Easy",
-        timeEstimate: "45 min",
+        timeEstimate: "20 min",
+        url: "https://codeforces.com/edu/course/2/lesson/9/1/practice/contest/307092/problem/A",
+        source: "codeforces"
       },
       {
-        id: "26",
-        title: "Search in String",
+        id: "32",
+        title: "B. Number of Smaller",
         difficulty: "Easy",
-        timeEstimate: "35 min",
+        timeEstimate: "20 min",
+        url: "https://codeforces.com/edu/course/2/lesson/9/1/practice/contest/307092/problem/B",
+        source: "codeforces"
       },
       {
-        id: "27",
-        title: "Count Occurrences",
+        id: "33",
+        title: "C. Number of Equal",
         difficulty: "Easy",
-        timeEstimate: "40 min",
+        timeEstimate: "20 min",
+        url: "https://codeforces.com/edu/course/2/lesson/9/1/practice/contest/307092/problem/C",
+        source: "codeforces"
       },
-    ],
-  },
+      {
+        "id": "31",
+        "title": "A. Two Pointers in Array (basic) – example",
+        "difficulty": "Easy",
+        "timeEstimate": "20 min",
+        "url": "https://codeforces.com/problemset/problem/1200/B",
+        "source": "codeforces"
+      },
+      {
+        "id": "31",
+        "title": "A. Two Pointers in Array (basic) – example",
+        "difficulty": "Easy",
+        "timeEstimate": "20 min",
+        "url": "https://codeforces.com/problemset/problem/1200/B",
+        "source": "codeforces"
+      },
+      {
+        "id": "31",
+        "title": "A. Two Pointers in Array (basic) – example",
+        "difficulty": "Easy",
+        "timeEstimate": "20 min",
+        "url": "https://codeforces.com/problemset/problem/1200/B",
+        "source": "codeforces"
+      },
+      {
+        "id": "32",
+        "title": "B. Sort and Two Pointers – pairs sum",
+        "difficulty": "Easy",
+        "timeEstimate": "30 min",
+        "url": "https://codeforces.com/problemset/problem/1538/A",
+        "source": "codeforces"
+      },
+      {
+        "id": "33",
+        "title": "A. Subarray with Length K and Two Pointers / Sliding Window",
+        "difficulty": "Easy",
+        "timeEstimate": "25 min",
+        "url": "https://codeforces.com/problemset/problem/1462/A",
+        "source": "codeforces"
+      },
+      {
+        "id": "34",
+        "title": "B. Two Pointers on String / Palindrome / Expand Around Center",
+        "difficulty": "Easy",
+        "timeEstimate": "30 min",
+        "url": "https://codeforces.com/problemset/problem/1782/B",
+        "source": "codeforces"
+      },
+      {
+        "id": "35",
+        "title": "B. Two Pointers + Greedy / Removing Elements from Both Ends",
+        "difficulty": "Medium",
+        "timeEstimate": "40 min",
+        "url": "https://codeforces.com/problemset/problem/1650/B",
+        "source": "codeforces"
+      },
+      {
+        "id": "36",
+        "title": "C. Advanced Two-Pointers / Two Arrays + Pointers",
+        "difficulty": "Medium",
+        "timeEstimate": "45 min",
+        "url": "https://codeforces.com/problemset/problem/1900/C",
+        "source": "codeforces"
+      }
+    ]
+  }
+  ,
   {
     id: "beginner-8",
     title: "Sorting Fundamentals",
